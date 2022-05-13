@@ -3,12 +3,13 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        primary:"#17311C",
-        secondary:"#4E725B",
-        lightbg:"#222222",
-        darkbg:"#151515",
+        primary:"#32A1EC",
+        secondary:"#9CA3AF",
+        lightbg:"#16212C",
+        darkbg1:"#222222",
         red: "#ff2c2c",
-        terniarycolor:"#f5f5f5",
+        terniarycolor:"#EBE8D8",
+ 
     
       },
       height:

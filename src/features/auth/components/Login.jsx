@@ -25,7 +25,7 @@ export const Login = () => {
         </div>
       ) : (
         <form
-          className=" bg-darkbg flex flex-col justify-around  w-1/3 h-{'fit-content-fit-content'} text-terniarycolor p-4 rounded"
+          className=" bg-darkbg flex flex-col justify-around  w-1/3 h-{'fit-content-fit-content'} text-terniarycolor p-4 rounded border"
           autoComplete="off"
           onSubmit={(e) => {
             e.preventDefault();
@@ -33,7 +33,7 @@ export const Login = () => {
             setLogin({ ...login, input: { username: "", password: "" } });
           }}
         >
-          <img src="./assests/logoimg.webp " className="w-16 h-14 m-auto"></img>
+          <img src="./assests/logoimg.png " className="w-40 h-30 m-auto"></img>
           <h2 className="text-secondary uppercase text-xl mb-2 text-center">
             Please Login To Continue.
           </h2>
@@ -48,7 +48,7 @@ export const Login = () => {
           <input
             type="text"
             required
-            className="min-w-full py-1 px-2 rounded bg-lightbg mb-4 cursor-pointer"
+            className="min-w-full py-1 px-2 rounded bg-lightbg mb-4 cursor-pointer border"
             placeholder="Enter Username"
             name="username"
             autoFocus
@@ -60,7 +60,7 @@ export const Login = () => {
           </label>
           <div className="relative">
             <input
-              className="min-w-full py-1 px-2 rounded bg-lightbg mb-4 cursor-pointer"
+              className="min-w-full py-1 px-2 rounded bg-lightbg mb-4 cursor-pointer border"
               placeholder="Enter Password"
               type={login.hide ? "password" : "text"}
               name="password"

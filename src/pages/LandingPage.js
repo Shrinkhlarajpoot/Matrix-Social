@@ -4,8 +4,8 @@ const LandingPage = () => {
   const navigate = useNavigate();
   return (
     <div className="grid grid-cols-2 h-screen w-screen">
-      <div className="bg-darkbg flex flex-col justify-center items-center">
-        <img src="./assests/logoimg.webp" className="w-1/2"></img>
+      <div className="bg-primary flex flex-col justify-center items-center">
+        <img src="./assests/logoimg.png" className="w-3/4"></img>
         <div className="flex flex-col   mt-6 text-terniarycolor mt-10">
           <li className="list-none flex items-center ">
             {" "}

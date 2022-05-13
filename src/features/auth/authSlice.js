@@ -47,7 +47,7 @@ export const authSlice = createSlice({
   name: "auth",
   initialState: {
     token: localStorage.getItem("Matrix-token") || null,
-    user: localStorage.getItem("Matrix-user") || null,
+    user:JSON.parse(localStorage.getItem("Matrix-user") )|| null,
     isLoading: false,
   },
   reducers: {
