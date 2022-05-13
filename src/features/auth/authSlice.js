@@ -1,12 +1,13 @@
 import axios from "axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { loginService, signUpService } from "../../services";
 
 export const loginHandler = createAsyncThunk(
   "auth/loginHandler",
   async (arg, { rejectWithValue }) => {
     const { login, setLogin } = arg;
     try {
-      const { data, status } = await axios.post("/api/auth/login", login.input);
+      const { data, status } =await loginService(login.input);
 
       if (status === 200) {
         localStorage.setItem("Matrix-token", data.encodedToken);
@@ -26,10 +27,7 @@ export const signupHandler = createAsyncThunk(
     const { signup, setSignup } = arg;
 
     try {
-      const { data, status } = await axios.post(
-        "api/auth/signup",
-        signup.input
-      );
+      const { data, status } = await signUpService(signup.input)
       if (status === 201) {
         localStorage.setItem("Matrix-token", data.encodedToken);
         localStorage.setItem("Matrix-user", JSON.stringify(data.createdUser));
@@ -74,7 +72,7 @@ export const authSlice = createSlice({
     },
     [signupHandler.fulfilled]: (state, { payload }) => {
       (state.isLoading = false), (state.token = payload.encodedToken);
-      state.user = payload.foundUser;
+      state.user = payload.createdUser;
     },
     [signupHandler.rejected]: (state, { payload }) => {
       state.isLoading = payload;
