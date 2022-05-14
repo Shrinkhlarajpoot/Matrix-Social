@@ -2,7 +2,9 @@ import { useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Login, Logout, Signup } from "../features/auth";
 
+
 import { Bookmarks, Home, LandingPage } from "../pages";
+
 
 import { PrivateRoutes } from "./PrivateRoutes";
 
@@ -37,9 +39,11 @@ export const AppRoutes = () => {
         <Route element={<PrivateRoutes />}>
           <Route path="/home" element={<Home />} />
         </Route>
+
         <Route element={<PrivateRoutes/>}>
           <Route path="/bookmarks" element={<Bookmarks/>}></Route>
         </Route>
+
       </Routes>
     </div>
   );
