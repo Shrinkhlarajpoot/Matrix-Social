@@ -18,14 +18,14 @@ export const Login = () => {
     setLogin({ ...login, input: { ...login.input, [name]: value } });
   };
   return (
-    <div className="bg-lightbg flex justify-center items-center w-screen h-screen ">
+    <div className="flex justify-center items-center w-screen h-screen dark:bg-lightbg bg-lightthemebg">
       {isLoading ? (
         <div>
           <Loader />
         </div>
       ) : (
         <form
-          className=" bg-darkbg flex flex-col justify-around  w-1/3 h-{'fit-content-fit-content'} text-terniarycolor p-4 rounded border"
+          className=" dark:bg-darkbg1 bg-lightthemebg2 flex flex-col justify-around  w-1/3 h-{'fit-content-fit-content'} dark:text-terniarycolor text-lightthemetext p-4 rounded border"
           autoComplete="off"
           onSubmit={(e) => {
             e.preventDefault();
@@ -48,7 +48,7 @@ export const Login = () => {
           <input
             type="text"
             required
-            className="min-w-full py-1 px-2 rounded bg-lightbg mb-4 cursor-pointer border"
+            className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border"
             placeholder="Enter Username"
             name="username"
             autoFocus
@@ -60,7 +60,7 @@ export const Login = () => {
           </label>
           <div className="relative">
             <input
-              className="min-w-full py-1 px-2 rounded bg-lightbg mb-4 cursor-pointer border"
+              className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border"
               placeholder="Enter Password"
               type={login.hide ? "password" : "text"}
               name="password"
@@ -109,5 +109,5 @@ export const Login = () => {
         </form>
       )}
     </div>
-  );
-};
+)
+}

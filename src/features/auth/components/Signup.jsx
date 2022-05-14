@@ -31,14 +31,14 @@ export const Signup = () => {
   };
 
   return (
-    <div className="bg-lightbg flex justify-center items-center w-screen h-screen ">
+    <div className= "flex justify-center items-center w-screen h-screen dark:bg-lightbg bg-lightthemebg">
       {isLoading ? (
         <div>
           <Loader />
         </div>
       ) : (
         <form
-          className=" bg-darkbg flex flex-col justify-around  w-1/3 h-{'fit-content-fit-content'} text-terniarycolor p-4 rounded border"
+          className=" dark:bg-darkbg1 bg-lightthemebg2 flex flex-col justify-around  w-1/3 h-{'fit-content-fit-content'} dark:text-terniarycolor lightthemetext p-4 rounded border"
           autoComplete="off"
           onSubmit={(e) => {
             e.preventDefault();
@@ -72,7 +72,7 @@ export const Signup = () => {
             Name<span className="text-red">*</span>
           </label>
           <input
-            className="min-w-full py-1 px-2 rounded bg-lightbg mb-4 cursor-pointer border"
+            className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border"
             placeholder="Enter Name"
             type="text"
             name="fullName"
@@ -86,7 +86,7 @@ export const Signup = () => {
             Username<span className="text-red">*</span>
           </label>
           <input
-            className="min-w-full py-1 px-2 rounded bg-lightbg mb-4 cursor-pointer border"
+            className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border"
             placeholder="Enter Username"
             type="text"
             name="username"
@@ -99,7 +99,7 @@ export const Signup = () => {
           </label>
           <div className="relative">
             <input
-              className="min-w-full py-1 px-2 rounded bg-lightbg mb-4 cursor-pointer border"
+              className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border"
               placeholder="Enter Password"
               name="password"
               required
@@ -125,7 +125,7 @@ export const Signup = () => {
           </label>
           <div className="relative">
             <input
-              className="min-w-full py-1 px-2 rounded bg-lightbg mb-4 cursor-pointer border"
+              className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border"
               placeholder="Enter Confirm Password"
               name="confirmpassword"
               required

@@ -1,3 +1,4 @@
+
 import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
 /**
@@ -21,5 +22,32 @@ export const users = [
     password: "guest11",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-  }
+  },
+  {
+    _id: uuid(),
+    fullName: "Shubham Soni",
+    username: "shubhamsoni",
+    password: "shubham456",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    fullName: "Kylie Jenner",
+    username: "kylie",
+    password: "kylie456",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  }, 
+  {
+    _id: uuid(),
+    fullName:"Adarsh Balika",
+    username: "adarshbalika",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+
+
+
+
 ];
