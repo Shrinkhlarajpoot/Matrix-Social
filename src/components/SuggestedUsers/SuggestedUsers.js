@@ -7,12 +7,12 @@ export const SuggestedUsers = () => {
   const { users } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const userData = users?.find((dbUser) => dbUser.username === user.username);
-  const otherUsers = users.filter(
-    (dbUser) => dbUser.username !== userData.username
+  const otherUsers = users?.filter(
+    (dbUser) => dbUser?.username !== userData?.username
   );
-  const filteredUsers = otherUsers.filter(
+  const filteredUsers = otherUsers?.filter(
     (eachuser) =>
-      !userData.following.find((item) => item.username === eachuser.username)
+      !userData?.following.find((item) => item?.username === eachuser?.username)
   );
   return (
     <>
@@ -24,16 +24,16 @@ export const SuggestedUsers = () => {
           {filteredUsers?.map((user) => (
             <div
               className="flex items-start gap-2 cursor-pointer"
-              key={user._id}
+              key={user?._id}
             >
               <UserAvatar user={user} />
 
               <div className="flex flex-col grow -mt-0.5">
                 <span className="text-sm dark:text-terniarycolor text-lightthemetext ">
-                  {user.fullName}
+                  {user?.fullName}
                 </span>
                 <span className="text-sm text-secondary-mt-1 text-secondary  ">
-                  {user.username}
+                  {user?.username}
                 </span>
               </div>
 

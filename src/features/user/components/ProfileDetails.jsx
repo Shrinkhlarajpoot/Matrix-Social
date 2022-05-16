@@ -39,10 +39,11 @@ useEffect(() => {
                 <Loader />
               </div>
             ) : (
+              ((currentUser?.profileImage)?
               <img
                 src={currentUser?.profileImage}
                 className="rounded-full w-28 h-28 border-2 mr-8"
-              ></img>
+              ></img>:<div className="rounded-full w-28 h-28 mr-8 bg-primary flex justify-center items-center text-4xl">{(currentUser?.fullName?.split(" ").map((item)=>item[0].toUpperCase())).join("")}</div>)
             )}
 
             <div className="flex flex-col capitalize">
@@ -50,7 +51,7 @@ useEffect(() => {
               <div className="text-sm text-secondary pb-2 ">
                 @{currentUser?.username}
               </div>
-              <div className="pb-2 text-sm">{currentUser?.bio}</div>
+              <div className="pb-2 text-sm">{currentUser?.bio || `Hello ,This is ${currentUser?.fullName}`}</div>
               <div className="flex items-center ">
                 <span class="material-icons-outlined text-secondary pb-2 ">
                   language
@@ -58,9 +59,9 @@ useEffect(() => {
                 <a
                   href=""
                   target="_blank"
-                  className="text-secondary pl-1 mb-2 pointer-cursor text-sm mb-2  hover:text-primary lowercase"
-                >
-                  {currentUser?.website}
+                  className="text-secondary pl-1 mb-2 pointer-cursor text-sm mb-2  hover:text-primary lowercase">
+                
+                  {currentUser?.website || "https://www.google.com/"}
                 </a>
               </div>
               <div className="flex  font-bold text-sm pb-4 ">

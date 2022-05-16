@@ -25,7 +25,7 @@ export const PostInput = ({ post, setNewPostModal, setShowPostOptions }) => {
   useEffect(() => {
     if (post) newPostRef.current.innerText = post.content;
   }, [post]);
-  const currentUser = users?.find((user1)=>user1.username===user.username)
+  const currentUser = users?.find((user1)=>user1.username===user.username);
   return (
     <div
       className={`grid grid-cols-[4rem_1fr] p-3 border-b border-secondary text-sm ${
