@@ -38,6 +38,15 @@ export const getBookmarkService = (token) => {
       { headers: { authorization: token } }
     );
   };
+  export const updateProfileService = ({ editInput, token }) => {
+    return axios.post(
+      "/api/users/edit",
+      { userData: editInput },
+      { headers: { authorization: token } }
+    );
+  };
+
+
 
 
 
