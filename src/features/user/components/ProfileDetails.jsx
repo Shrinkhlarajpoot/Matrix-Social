@@ -21,15 +21,16 @@ export const ProfileDetails = () => {
   const [followModal, setFollowModal] = useState(false);
   const [followingModal, setFollowingModal] = useState(false);
   const navigate = useNavigate();
-useEffect(() => {
-    dispatch(getAllUsers());
-  }, [dispatch]);
   const currentUser = users?.find((user1) => user1.username === username);
   const currentUserPosts = posts?.filter((post) => post.username === username);
   const userAlreadyFollowing = currentUser?.followers?.find(
     (follower) => follower?.username === user?.username
   );
- return (
+  useEffect(() => {
+    dispatch(getAllUsers());
+  }, [dispatch]);
+
+  return (
     <div>
       <div className="h-fit sticky top-0 z-10  py-6  px-8 dark:text-terniarycolor uppercase border-b border-secondary  bg-lightthemebg2 text-lightthemetext dark:bg-darkbg1 ">
         <div className="flex justify-between">
@@ -38,12 +39,18 @@ useEffect(() => {
               <div className="w-28 h-28 rounded-full mr-8 border-2 ">
                 <Loader />
               </div>
-            ) : (
-              ((currentUser?.profileImage)?
+            ) : currentUser?.profileImage ? (
               <img
                 src={currentUser?.profileImage}
                 className="rounded-full w-28 h-28 border-2 mr-8"
-              ></img>:<div className="rounded-full w-28 h-28 mr-8 bg-primary flex justify-center items-center text-4xl">{(currentUser?.fullName?.split(" ").map((item)=>item[0].toUpperCase())).join("")}</div>)
+              ></img>
+            ) : (
+              <div className="rounded-full w-28 h-28 mr-8 bg-primary flex justify-center items-center text-4xl">
+                {currentUser?.fullName
+                  ?.split(" ")
+                  .map((item) => item[0].toUpperCase())
+                  ?.join("")}
+              </div>
             )}
 
             <div className="flex flex-col capitalize">
@@ -51,17 +58,19 @@ useEffect(() => {
               <div className="text-sm text-secondary pb-2 ">
                 @{currentUser?.username}
               </div>
-              <div className="pb-2 text-sm">{currentUser?.bio || `Hello ,This is ${currentUser?.fullName}`}</div>
+              <div className="pb-2 text-sm">
+                {currentUser?.bio || `Hello ,This is ${currentUser?.fullName}`}
+              </div>
               <div className="flex items-center ">
                 <span class="material-icons-outlined text-secondary pb-2 ">
                   language
                 </span>
                 <a
-                  href=""
+                  href={currentUser?.website || "https://www.google.com/ "}
                   target="_blank"
-                  className="text-secondary pl-1 mb-2 pointer-cursor text-sm mb-2  hover:text-primary lowercase">
-                
-                  {currentUser?.website || "https://www.google.com/"}
+                  className="text-secondary pl-1 mb-2 pointer-cursor text-sm mb-2  hover:text-primary lowercase"
+                >
+                  {currentUser?.website?.slice(11) || "https://www.google.com/"}
                 </a>
               </div>
               <div className="flex  font-bold text-sm pb-4 ">
@@ -83,14 +92,17 @@ useEffect(() => {
               </div>
             </div>
           </div>
-          {user?.id === currentUser?.id ? (
+          {user?.username === currentUser?.username ||
+          !currentUser?.username ? (
             <div className="flex h-8 ">
-              <div
-                className="capitalize border px-4 py-1 mx-1 border border-primary text-sm rounded-full cursor-pointer hover:bg-primary w-fit h-fit"
-                onClick={() => setEditModal(true)}
-              >
-                Edit Profile
-              </div>
+              {currentUser?.username ? (
+                <div
+                  className="capitalize border px-4 py-1 mx-1 border border-primary text-sm rounded-full cursor-pointer hover:bg-primary w-fit h-fit"
+                  onClick={() => setEditModal(true)}
+                >
+                  Edit Profile
+                </div>
+              ) : null}
               <span
                 class="material-icons-outlined cursor-pointer mt-1 px-1 hover:text-primary"
                 onClick={() => {
@@ -124,6 +136,7 @@ useEffect(() => {
           )}
         </div>
       </div>
+
       {editModal ? <EditprofileModal setEditModal={setEditModal} /> : null}
       {followModal ? (
         <FollowlistModal
