@@ -67,7 +67,7 @@ export const PostCard = ({ post }) => {
           </div>
         </div>
         <div className="break-all">{content}</div>
-        <div className="flex gap-4 mt-1 justify-around ">
+        <div className="flex gap-4 mt-1 justify-between ">
           <div className="flex items-center">
             <span
               class={`material-icons-outlined py-1 px-2 hover:rounded-full  text-md hover:text-primary ${
