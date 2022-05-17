@@ -21,7 +21,7 @@ export const EditprofileModal = ({ setEditModal }) => {
   const cloudnary_url =
     "https://api.cloudinary.com/v1_1/ds6cgk1wy/image/upload";
   const uploadImageFile = async () => {
-    dispatch(setLoading())
+    dispatch(setLoading());
     const file = newProfileUrl;
     const formData = new FormData();
     formData.append("file", file);
@@ -36,7 +36,6 @@ export const EditprofileModal = ({ setEditModal }) => {
       })
         .then((response) => response.json())
         .then((data) => {
-          
           return dispatch(
             updateProfile({
               editInput: {
@@ -47,7 +46,7 @@ export const EditprofileModal = ({ setEditModal }) => {
               token,
             })
           );
-          })
+        })
         .catch((err) => console.error(err));
     }
   };
@@ -61,7 +60,7 @@ export const EditprofileModal = ({ setEditModal }) => {
       );
     setEditModal(false);
   };
-return (
+  return (
     <div className="bg-[#00000080] top-0 left-0 fixed w-full h-full z-30 flex justify-center items-center opacity-100 ">
       <div className="w-1/3 border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1  border-primary z-20 flex flex-col py-2 px-3 flex flex-col relative">
         <span
@@ -71,7 +70,6 @@ return (
           cancel
         </span>
         <div className="m-auto pt-1 relative">
-
           <UserAvatar
             user={
               newProfileUrl
@@ -92,7 +90,6 @@ return (
               type="file"
               className="hidden "
               onChange={(e) => setNewProfileUrl(e.target.files[0])}
-             
             ></input>
           </label>
         </div>
@@ -133,10 +130,10 @@ return (
         ></input>
         <div className="self-end ">
           <button
-            className="px-4 py-1 hover:bg-primary text-terniarycolor rounded-full  border border-primary  my-4 mr-2 "
+            className="px-4 py-1 hover:bg-primary hover:text-terniarycolor dark:text-terniarycolor text-lightthemetext  rounded-full  border border-primary  my-4 mr-2 "
             onClick={() => setEditInput(currentUser)}
           >
-            Cancel
+            Reset
           </button>
 
           <button
