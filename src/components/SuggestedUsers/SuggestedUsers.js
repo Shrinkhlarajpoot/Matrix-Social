@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { followUser } from "../../features/user";
 import { UserAvatar } from "../UserAvatar/UserAvatar";
 
@@ -6,6 +7,7 @@ export const SuggestedUsers = () => {
   const { token, user } = useSelector((state) => state.auth);
   const { users } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const userData = users?.find((dbUser) => dbUser.username === user.username);
   const otherUsers = users?.filter(
     (dbUser) => dbUser?.username !== userData?.username
@@ -26,7 +28,12 @@ export const SuggestedUsers = () => {
               className="flex items-start gap-2 cursor-pointer"
               key={user?._id}
             >
-              <UserAvatar user={user} />
+              <div
+                className="cursor-pointer"
+                onClick={() => navigate(`/profile/${user?.username}`)}
+              >
+                <UserAvatar user={user} />
+              </div>
 
               <div className="flex flex-col grow -mt-0.5">
                 <span className="text-sm dark:text-terniarycolor text-lightthemetext ">
