@@ -1,5 +1,6 @@
 import { AppRoutes } from "./routes/AppRoutes";
 import "./App.css";
+import { useSelector } from "react-redux";
 
 function App() {
   const { darkTheme } = useSelector((state) => state.user);
