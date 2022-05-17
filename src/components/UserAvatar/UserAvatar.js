@@ -1,5 +1,5 @@
 export const UserAvatar = ({ user }) => {
-  const userAvatar = user?.profileImage;
+const userAvatar = user?.profileImage;
   const alternateAvatar = user?.fullName
     ?.split(" ")
     ?.map((name) => name[0].toUpperCase());
@@ -12,7 +12,7 @@ export const UserAvatar = ({ user }) => {
           className="h-12 w-12 rounded-full"
         />
       ) : (
-        <span className="h-8 w-8 text-sm flex justify-center items-center rounded-full bg-primary text-terniarycolor  ">
+        <span className="h-12 w-12 text-sm flex justify-center items-center rounded-full bg-primary text-terniarycolor  ">
           {alternateAvatar?.join("")}
         </span>
       )}
