@@ -102,7 +102,7 @@ export const Singlepost = () => {
                       </div>
                     </div>
                     <div className="break-all mb-2">{currentPost?.content}</div>
-                    <div className="flex gap-6 mt-4 justify-around pt-4">
+                    <div className="flex gap-6 mt-4 justify-between pt-4">
                       <div className="flex items-center">
                         <span
                           class={`material-icons-outlined py-1 px-2 hover:rounded-full  text-md hover:text-primary ${
