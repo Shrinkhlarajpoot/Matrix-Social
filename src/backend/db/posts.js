@@ -10,17 +10,17 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.  ",
     likes: {
       likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
-    fullName:"Adarsh Balika",
-    username: "adarshbalika",
+    fullName: "Reecha Singh",
+    username: "reecha_singh",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-  }, 
+  },
   {
     _id: uuid(),
     content:
@@ -30,8 +30,22 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    fullName:"Kylie Jenner",
-    username: "kylie",
+    fullName: "Mahesh Deshmukh",
+    username: "mahesh_deshmukh",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    fullName: "Shrinkhla Rajpoot",
+    username: "shrinkhla",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
@@ -45,8 +59,80 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    fullName:"Shubham Soni",
+    fullName: "Shubham Soni",
     username: "shubhamsoni",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    fullName: "Himadri Shah",
+    username: "himadri",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+
+  {
+    _id: uuid(),
+    content:
+      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.  ",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    fullName: "Reecha Singh",
+    username: "reecha_singh",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+
+  {
+    _id: uuid(),
+    content:
+      "At  laborum et dolorum t officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    fullName: "Shubham Soni",
+    username: "shubhamsoni",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    fullName: "Himadri Shah",
+    username: "himadri",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    fullName: "Pritam Kumar",
+    username: "pritam_kmr",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
