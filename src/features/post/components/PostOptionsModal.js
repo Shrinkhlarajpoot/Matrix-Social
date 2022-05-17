@@ -17,8 +17,9 @@ export const PostOptionsModal = ({ setShowPostOptions, post }) => {
     (user) => user.username === post.username
   );
   const userFollowingAlready = currentUserToFollow?.followers.find(
-    (followeruser) => followeruser.id === user.id
+    (followeruser) => followeruser.username === user.username
   );
+  
   return (
     <div className="absolute right-1.5 top-1.1 w-fit rounded py-1 px-2 border border-primary-300 my-2 z-10 dark:bg-lightbg bg-lightthemebg2">
       {user.username === post.username ? (
