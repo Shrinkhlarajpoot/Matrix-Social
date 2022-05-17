@@ -107,7 +107,7 @@ export const getBookmarkPostsHandler = function (schema, request) {
 
 export const bookmarkPostHandler = function (schema, request) {
   const { postId } = request.params;
- const user = requiresAuth.call(this, request);
+  const user = requiresAuth.call(this, request);
   try {
     if (!user) {
       return new Response(
@@ -171,7 +171,7 @@ export const removePostFromBookmarkHandler = function (schema, request) {
       return new Response(400, {}, { errors: ["Post not bookmarked yet"] });
     }
     const filteredBookmarks = user.bookmarks.filter(
-      (currId) => currId._id !== postId
+      (currId) => currId !== postId
     );
     user = { ...user, bookmarks: filteredBookmarks };
     this.db.users.update(

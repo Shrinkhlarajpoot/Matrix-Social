@@ -20,6 +20,22 @@ export const posts = [
     username: "reecha_singh",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        commentInput: "This App is Working Fine...Love It.",
+        username: "shrinkhla",
+        fullName: "Shrinkhla Rajpoot",
+        profileImage:
+          "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650928/Matrix%20images/h2utlwdasy45ppp6tm4r.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
   },
   {
     _id: uuid(),
@@ -34,6 +50,22 @@ export const posts = [
     username: "mahesh_deshmukh",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        commentInput: "Hello Everyone..",
+        username: "pritam_kmr",
+        fullName: "Pritam Kumar",
+        profileImage:
+          "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650995/Matrix%20images/ubmb2eqkuevjweoloww8.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
   },
   {
     _id: uuid(),
@@ -48,6 +80,7 @@ export const posts = [
     username: "shrinkhla",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comments: [],
   },
 
   {
@@ -63,6 +96,7 @@ export const posts = [
     username: "shubhamsoni",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comments: [],
   },
   {
     _id: uuid(),
@@ -77,6 +111,22 @@ export const posts = [
     username: "himadri",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        commentInput: "Making App In React Is Fun",
+        username: "pritam_kmr",
+        fullName: "Pritam Kumar",
+        profileImage:
+          "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650995/Matrix%20images/ubmb2eqkuevjweoloww8.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
   },
 
   {
@@ -92,6 +142,7 @@ export const posts = [
     username: "reecha_singh",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comments: [],
   },
 
   {
@@ -107,6 +158,36 @@ export const posts = [
     username: "shubhamsoni",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        commentInput: "Profile Pic is Awesome..",
+        username: "shrinkhla",
+        fullName: "Shrinkhla Rajpoot",
+        profileImage:
+          "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650928/Matrix%20images/h2utlwdasy45ppp6tm4r.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: uuid(),
+        commentInput: "Making App In React Is Fun",
+        username: "pritam_kmr",
+        fullName: "Pritam Kumar",
+        profileImage:
+          "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650995/Matrix%20images/ubmb2eqkuevjweoloww8.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
   },
   {
     _id: uuid(),
@@ -121,6 +202,36 @@ export const posts = [
     username: "himadri",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        commentInput: "Welcome Back..",
+        username: "pritam_kmr",
+        fullName: "Pritam Kumar",
+        profileImage:
+          "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650995/Matrix%20images/ubmb2eqkuevjweoloww8.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: uuid(),
+        commentInput: "Howz the Trip..",
+        username: "pritam_kmr",
+        fullName: "Pritam Kumar",
+        profileImage:
+          "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650995/Matrix%20images/ubmb2eqkuevjweoloww8.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
   },
   {
     _id: uuid(),
@@ -135,5 +246,6 @@ export const posts = [
     username: "pritam_kmr",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comments: [],
   },
 ];
