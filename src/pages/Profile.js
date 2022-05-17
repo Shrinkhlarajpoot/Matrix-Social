@@ -34,7 +34,7 @@ export const Profile = () => {
                 <PostCard post={post} key={post._id} />
               ))
             ) : (
-              <p className="p-4 text-center">No posts to show.</p>
+              <p className="text-center p-4  dark:text-terniarycolor lightthemetext">No posts to show.</p>
             )}
           </>
         )}
