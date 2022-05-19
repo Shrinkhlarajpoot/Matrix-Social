@@ -9,7 +9,8 @@ import {
   unfollowUserService,
   updateProfileService,
 } from "../../services";
-
+import { getSearchedUser } from "../../utils";
+import toast from "react-hot-toast";
 export const getAllUsers = createAsyncThunk(
   "user/getAllUsers",
   async (_, { rejectWithValue }) => {
@@ -19,6 +20,7 @@ export const getAllUsers = createAsyncThunk(
         return data.users;
       }
     } catch {
+      toast.error("Internal Server Error...")
       return rejectWithValue([], "Error occured. Try again later.");
     }
   }
@@ -33,6 +35,7 @@ export const getBookmarks = createAsyncThunk(
         return data.bookmarks;
       }
     } catch {
+      toast.error("Failed to fetch bookmarks...")
       return rejectWithValue([], "Error occured. Try again later.");
     }
   }
@@ -44,9 +47,11 @@ export const addBookmark = createAsyncThunk(
       const { data, status } = await addBookmarkService(arg);
 
       if (status === 200) {
+        toast.success("Added to Bookmarks...")
         return data.bookmarks;
       }
     } catch {
+      toast.error("Try Again Later..")
       return rejectWithValue([], "Error occured. Try again later.");
     }
   }
@@ -59,10 +64,11 @@ export const removeBookmark = createAsyncThunk(
       const { data, status } = await removeBookmarkService(arg);
 
       if (status === 200) {
+        toast.success("Removed from Bookmark...")
         return data.bookmarks;
       }
     } catch {
-      console.log("what");
+      toast.error("Try Again Later...")
       return rejectWithValue([], "Error occured. Try again later.");
     }
   }
@@ -73,9 +79,11 @@ export const followUser = createAsyncThunk(
     try {
       const { data, status } = await followUserService(arg);
       if (status === 200) {
+        toast.success("User Followed...")
         return data;
       }
     } catch {
+      toast.error("Try Again Later...")
       return rejectWithValue([], "Error occured. Try again later.");
     }
   }
@@ -88,9 +96,11 @@ export const unfollowUser = createAsyncThunk(
       const { data, status } = await unfollowUserService(arg);
 
       if (status === 200) {
+        toast.success('User Un-Followed...')
         return data;
       }
     } catch {
+      toast.error("Try Again Later..")
       return rejectWithValue([], "Error occured. Try again later.");
     }
   }
@@ -101,9 +111,11 @@ export const updateProfile = createAsyncThunk(
     try {
       const { data, status } = await updateProfileService(arg);
       if (status === 201) {
+        toast.success("Profile Updated Sucessfully...")
         return data.user;
       }
     } catch {
+      toast.error("Try Again Later...")
       return rejectWithValue("Some error occured. Try again");
     }
   }
@@ -112,20 +124,27 @@ export const updateProfile = createAsyncThunk(
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    darkTheme: JSON.parse(localStorage.getItem("matrix_theme")) || true,
+    darkTheme: localStorage.getItem("matrix_theme") || 'dark',
     users: [],
     bookmarks: [],
     isLoading: false,
     error: "",
+    searchterm:"",
+    searchList:[],
   },
   reducers: {
     toggleTheme: (state, { payload }) => {
+      
       state.darkTheme = payload;
       localStorage.setItem("matrix_theme", payload);
     },
     setLoading: (state) => {
       state.isLoading = true;
     },
+    setSearchList:(state,{payload})=>{
+     state.searchterm = payload;
+     state.searchList = getSearchedUser(state.users,payload);
+    }
   },
   extraReducers: {
     [getAllUsers.pending]: (state) => {
@@ -186,5 +205,5 @@ export const userSlice = createSlice({
     },
   },
 });
-export const { toggleTheme, setLoading } = userSlice.actions;
+export const { toggleTheme, setLoading,setSearchList } = userSlice.actions;
 export default userSlice.reducer;

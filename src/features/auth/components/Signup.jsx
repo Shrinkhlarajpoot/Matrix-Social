@@ -31,14 +31,14 @@ export const Signup = () => {
   };
 
   return (
-    <div className= "flex justify-center items-center w-screen h-screen dark:bg-lightbg bg-lightthemebg">
+    <div className="flex justify-center items-center w-screen h-screen dark:bg-lightbg bg-lightthemebg px-1">
       {isLoading ? (
         <div>
           <Loader />
         </div>
       ) : (
         <form
-          className=" dark:bg-darkbg1 bg-lightthemebg2 flex flex-col justify-around  w-1/3 h-{'fit-content-fit-content'} dark:text-terniarycolor lightthemetext p-4 rounded border"
+          className=" dark:bg-darkbg1 bg-lightthemebg2 flex flex-col justify-around  md:w-1/2  xl:w-1/3  sm:w-4/6  w-96   h-{'fit-content-fit-content'} dark:text-terniarycolor lightthemetext p-4 rounded border"
           autoComplete="off"
           onSubmit={(e) => {
             e.preventDefault();
@@ -72,7 +72,7 @@ export const Signup = () => {
             Name<span className="text-red">*</span>
           </label>
           <input
-            className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border"
+            className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border text-sm"
             placeholder="Enter Name"
             type="text"
             name="fullName"
@@ -86,7 +86,7 @@ export const Signup = () => {
             Username<span className="text-red">*</span>
           </label>
           <input
-            className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border"
+            className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border text-sm  "
             placeholder="Enter Username"
             type="text"
             name="username"
@@ -99,7 +99,7 @@ export const Signup = () => {
           </label>
           <div className="relative">
             <input
-              className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border"
+              className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border text-sm"
               placeholder="Enter Password"
               name="password"
               required
@@ -125,7 +125,7 @@ export const Signup = () => {
           </label>
           <div className="relative">
             <input
-              className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border"
+              className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border text-sm"
               placeholder="Enter Confirm Password"
               name="confirmpassword"
               required
@@ -157,16 +157,16 @@ export const Signup = () => {
               Sign Up
             </button>
           </div>
-          <h3 className="text-center mt-2">
-            Already have an Account?{" "}
+          <div className="flex flex-wrap items-center mt-2 justify-center">
+            <h3>Already have an Account?</h3>
             <span
-              className=" text-red cursor-pointer"
+              className=" text-red cursor-pointer ml-1"
               role="button"
               onClick={() => navigate("/login")}
             >
               Log In
             </span>
-          </h3>
+          </div>
         </form>
       )}
     </div>

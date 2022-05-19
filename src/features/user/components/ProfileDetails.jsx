@@ -11,12 +11,13 @@ import {
 } from "..";
 import { Loader } from "../../../components/Loader/Loader";
 import { logoutHandler } from "../../auth";
+import { toggleTheme } from "../userSlice";
 export const ProfileDetails = () => {
   const { username } = useParams();
   const dispatch = useDispatch();
   const { user, token } = useSelector((state) => state.auth);
   const { posts } = useSelector((state) => state.post);
-  const { users, isLoading } = useSelector((state) => state.user);
+  const { users, isLoading, darkTheme } = useSelector((state) => state.user);
   const [editModal, setEditModal] = useState(false);
   const [followModal, setFollowModal] = useState(false);
   const [followingModal, setFollowingModal] = useState(false);
@@ -29,12 +30,32 @@ export const ProfileDetails = () => {
   useEffect(() => {
     dispatch(getAllUsers());
   }, [dispatch]);
+ return (
+    <div >
+      <div className="h-16 sticky top-0  w-100 dark:text-terniarycolor  border-b border-secondary  bg-lightthemebg2 text-lightthemetext dark:bg-darkbg1 flex justify-between items-center px-4">
+        <div className="flex px-2 ">
+          <span
+            class="material-icons-outlined pr-2 cursor-pointer"
+            onClick={() => navigate(-1)}
+          >
+            arrow_back
+          </span>
+          <span>{currentUser?.username}</span>
+        </div>
+        <span
+          class="material-icons text-primary text-2xl cursor-pointer "
+          onClick={() =>
+            dispatch(toggleTheme(darkTheme === "dark" ? "light" : "dark"))
+          }
+        >
+          {" "}
+          {darkTheme === "dark" ? "dark_mode" : "light_mode"}
+        </span>
+      </div>
 
-  return (
-    <div>
-      <div className="h-fit sticky top-0 z-10  py-6  px-8 dark:text-terniarycolor uppercase border-b border-secondary  bg-lightthemebg2 text-lightthemetext dark:bg-darkbg1 ">
-        <div className="flex justify-between">
-          <div className="flex">
+      <div className="h-fit  py-6  px-8 dark:text-terniarycolor  uppercase border-b border-secondary  bg-lightthemebg2 text-lightthemetext dark:bg-darkbg1 ">
+        <div className="flex justify-between flex-wrap ">
+          <div className="flex fold">
             {isLoading ? (
               <div className="w-28 h-28 rounded-full mr-8 border-2 ">
                 <Loader />
@@ -54,9 +75,11 @@ export const ProfileDetails = () => {
             )}
 
             <div className="flex flex-col capitalize">
-              <div className="text-primary">{currentUser?.fullName}</div>
+              <div className="text-primary">
+                {currentUser?.fullName.toUpperCase()}
+              </div>
               <div className="text-sm text-secondary pb-2 ">
-                @{currentUser?.username}
+                @{currentUser?.username.toUpperCase()}
               </div>
               <div className="pb-2 text-sm">
                 {currentUser?.bio || `Hello ,This is ${currentUser?.fullName}`}
@@ -70,10 +93,10 @@ export const ProfileDetails = () => {
                   target="_blank"
                   className="text-secondary pl-1 mb-2 pointer-cursor text-sm mb-2  hover:text-primary lowercase"
                 >
-                  {currentUser?.website?.slice(11) || "https://www.google.com/"}
+                  {currentUser?.website?.substring(0,30) || "https://www.google.com/"}
                 </a>
               </div>
-              <div className="flex  font-bold text-sm pb-4 ">
+              <div className="flex  font-bold text-sm pb-4 flex-wrap">
                 <span
                   className="hover:text-primary cursor-pointer text-bold"
                   onClick={() => setFollowModal(true)}
@@ -97,7 +120,7 @@ export const ProfileDetails = () => {
             <div className="flex h-8 ">
               {currentUser?.username ? (
                 <div
-                  className="capitalize border px-4 py-1 mx-1 border border-primary text-sm rounded-full cursor-pointer hover:bg-primary w-fit h-fit"
+                  className="capitalize border px-4 py-1 sm:mx-1  mr-3 -ml-1 border border-primary text-sm rounded-full cursor-pointer hover:bg-primary w-fit h-fit"
                   onClick={() => setEditModal(true)}
                 >
                   Edit Profile
@@ -106,7 +129,8 @@ export const ProfileDetails = () => {
               <span
                 class="material-icons-outlined cursor-pointer mt-1 px-1 hover:text-primary"
                 onClick={() => {
-                  dispatch(logoutHandler()), navigate("/logout");
+                  dispatch(logoutHandler())
+                 , navigate("/logout");
                 }}
               >
                 logout

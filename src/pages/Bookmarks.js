@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Sidebar, SuggestedUsers } from "../components";
+import { SearchBar, Sidebar, SuggestedUsers } from "../components";
 import { Loader } from "../components/Loader/Loader";
 import { getPosts, PostCard } from "../features/post";
-import { getBookmarks } from "../features/user";
+import { getBookmarks, toggleTheme } from "../features/user";
 export const Bookmarks = () => {
   const { token } = useSelector((state) => state.auth);
-  const { bookmarks, isLoading } = useSelector((state) => state.user);
+  const { bookmarks, isLoading,darkTheme } = useSelector((state) => state.user);
   const { posts } = useSelector((state) => state.post);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -17,11 +17,20 @@ export const Bookmarks = () => {
     bookmarks.find((bookmark) => bookmark === dbPost._id)
   );
   return (
-    <div className="grid grid-cols-[1fr_2fr_1fr] dark:bg-lightbg bg-lightthemebg ">
+    <div className="grid grid-cols-[1fr] sm:grid-cols-[7rem_1fr]  xl:grid-cols-[20rem_1fr_20rem]  bg-lightthemebg dark:bg-lightbg   lg:grid-cols-[20rem_1fr]  lg:m-auto active_height mb-20">
       <Sidebar />
-      <div className="border-x border-secondary flex flex-col ">
-        <div className="h-16 sticky top-0 z-10  pt-4 px-8 dark:text-terniarycolor uppercase border-b border-secondary  bg-lightthemebg2 text-lightthemetext dark:bg-darkbg1 ">
-          Bookmarks
+      <div className="border-x border-secondary flex flex-col w-100">
+        <div className="h-16 sticky top-0   py-1 px-10 dark:text-terniarycolor uppercase border-b border-secondary  bg-lightthemebg2 text-lightthemetext dark:bg-darkbg1 flex justify-between items-center ">
+        <span>Bookmarks</span>
+        <span
+        class="material-icons text-primary  text-3xl cursor-pointer "
+        onClick={() => dispatch(toggleTheme(darkTheme==="dark"? "light":"dark"))}
+      > {darkTheme==='dark' ? "dark_mode" : "light_mode"}</span>
+
+      
+        </div>
+        <div className="w-100 xl:hidden block">
+          <SearchBar />
         </div>
         <div className="mb-4">
           {isLoading ? (
@@ -39,7 +48,10 @@ export const Bookmarks = () => {
           )}
         </div>
       </div>
+      <div className="hidden xl:block">
+        <SearchBar/>
       <SuggestedUsers />
+      </div>
     </div>
   );
 };

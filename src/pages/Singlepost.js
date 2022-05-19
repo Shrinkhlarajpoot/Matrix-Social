@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { Sidebar, SuggestedUsers, UserAvatar } from "../components";
+import { SearchBar, Sidebar, SuggestedUsers, UserAvatar } from "../components";
 import { Loader } from "../components/Loader/Loader";
 import {
   CommentCard,
@@ -10,10 +10,16 @@ import {
   likePost,
   PostOptionsModal,
   addComment,
+  LikesModal,
 } from "../features/post";
-import { addBookmark, getAllUsers, removeBookmark } from "../features/user";
+import {
+  addBookmark,
+  getAllUsers,
+  removeBookmark,
+  toggleTheme,
+} from "../features/user";
 import { useclcikoutside } from "../hooks/useclickoutside";
-import { likebyloggedUser, postInBookmarks } from "../utils";
+import { getPostDate, likebyloggedUser, postInBookmarks } from "../utils";
 export const Singlepost = () => {
   const { postId } = useParams();
   const {
@@ -21,13 +27,14 @@ export const Singlepost = () => {
     isLoading,
     singlepost: currentPost,
   } = useSelector((state) => state.post);
-  const { users, bookmarks } = useSelector((state) => state.user);
+  const { users, bookmarks, darkTheme } = useSelector((state) => state.user);
   const { user, token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [showpostOptions, setShowPostOptions] = useState(false);
   const newCommentRef = useRef();
   const navigate = useNavigate();
   const postRef = useRef();
+  const [likesModal, setLikesModal] = useState(false);
   useEffect(() => {
     dispatch(getSinglePost(postId));
     dispatch(getAllUsers());
@@ -45,17 +52,32 @@ export const Singlepost = () => {
   const postInBookmark = postInBookmarks(bookmarks, currentPost?._id);
 
   return (
-    <div className="grid grid-cols-[1fr_2fr_1fr]  bg-lightthemebg dark:bg-lightbg">
+    <div className="grid grid-cols-[1fr] sm:grid-cols-[7rem_1fr]  xl:grid-cols-[20rem_1fr_20rem]  bg-lightthemebg dark:bg-lightbg   lg:grid-cols-[20rem_1fr] lg:w-[98%] lg:m-auto pb-20 sm:pb-0 active_height">
       <Sidebar />
-      <div className="border-x border-secondary flex flex-col content-start">
-        <div className="h-16 sticky top-0 z-10  pt-4 px-8 dark:text-terniarycolor uppercase border-b border-terniarycolor  bg-lightthemebg2 text-lightthemetext dark:bg-darkbg1 flex content-center ">
+      <div className="border-x border-secondary flex flex-col content-start w-100">
+        <div className="h-16 sticky top-0  py-1 px-10 dark:text-terniarycolor uppercase border-b border-terniarycolor  bg-lightthemebg2 text-lightthemetext dark:bg-darkbg1 flex justify-between items-center">
+          <div className="flex">
+            <span
+              class="material-icons-outlined pr-2 cursor-pointer"
+              onClick={() => navigate(-1)}
+            >
+              arrow_back
+            </span>
+            Post
+          </div>
           <span
-            class="material-icons-outlined pr-2 cursor-pointer"
-            onClick={() => navigate(-1)}
+            class="material-icons text-primary text-3xl cursor-pointer "
+            onClick={() =>
+              dispatch(toggleTheme(darkTheme === "dark" ? "light" : "dark"))
+            }
           >
-            arrow_back
+            {" "}
+            {darkTheme === "dark" ? "dark_mode" : "light_mode"}
           </span>
-          Post
+        </div>
+
+        <div className="w-100 xl:hidden block">
+          <SearchBar />
         </div>
         {isLoading ? (
           <Loader />
@@ -64,7 +86,7 @@ export const Singlepost = () => {
             {currentPost !== null ? (
               <>
                 <div
-                  className="grid grid-cols-[4rem_1fr] text-sm border-b bg-darkbg border-secondary bg p-3 cursor-pointer dark:text-terniarycolor text-lightthemetext"
+                  className="grid sm:grid-cols-[4rem_1fr] sm:text-sm text-xs  border-b bg-darkbg border-secondary bg p-3 cursor-pointer dark:text-terniarycolor text-lightthemetext"
                   ref={postRef}
                 >
                   <div
@@ -76,12 +98,15 @@ export const Singlepost = () => {
                   </div>
                   <div className="flex flex-col gap1">
                     <div className="flex justify-between">
-                      <div className="flex items-center gap-1">
+                      <div className="flex items-center gap-1 flex-wrap">
                         <span className="font-bold tracking-wide">
                           {currentPost?.fullName}
                         </span>
                         <span className="text-secondary">
-                          @{currentPost?.username}
+                          @{currentPost?.username}.
+                        </span>
+                        <span className="text-secondary ml-2">
+                          {getPostDate(currentPost?.createdAt)}
                         </span>
                       </div>
                       <div className="relative">
@@ -101,30 +126,33 @@ export const Singlepost = () => {
                         )}
                       </div>
                     </div>
-                    <div className="break-all mb-2">{currentPost?.content}</div>
-                    <div className="flex gap-6 mt-4 justify-between pt-4">
-                      <div className="flex items-center">
-                        <span
-                          class={`material-icons-outlined py-1 px-2 hover:rounded-full  text-md hover:text-primary ${
-                            likebyloggedUser(currentPost, user)
-                              ? "text-red"
-                              : null
-                          }`}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            likebyloggedUser(currentPost, user)
-                              ? dispatch(
-                                  dislikePost({ token, _id: currentPost._id })
-                                )
-                              : dispatch(
-                                  likePost({ token, _id: currentPost._id })
-                                );
-                          }}
-                        >
-                          thumb_up_off_alt
-                        </span>
-                        {currentPost?.likes?.likeCount > 0 &&
-                          currentPost?.likes?.likeCount}
+                    <div className="break-all mb- pr-1">{currentPost?.content}</div>
+                    <div className="flex  mt-4 justify-between pt-4">
+                      <div className="flex flex-col">
+                        <div className="flex items-center">
+                          <span
+                            class={`material-icons-outlined py-1 px-2 hover:rounded-full  text-md hover:text-primary ${
+                              likebyloggedUser(currentPost, user)
+                                ? "text-red"
+                                : null
+                            }`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              likebyloggedUser(currentPost, user)
+                                ? dispatch(
+                                    dislikePost({ token, _id: currentPost._id })
+                                  )
+                                : dispatch(
+                                    likePost({ token, _id: currentPost._id })
+                                  );
+                            }}
+                          >
+                            thumb_up_off_alt
+                          </span>
+                          {currentPost?.likes?.likeCount > 0 &&
+                            currentPost?.likes?.likeCount}
+
+                        </div>
                       </div>
                       <div className="flex items-center">
                         <span
@@ -155,9 +183,28 @@ export const Singlepost = () => {
                       </span>
                     </div>
                   </div>
+                    <div>
+                  
+                        </div> {currentPost?.likes?.likedBy?.length > 0 ? (
+                          <div
+                            className="text-xs hover:text-primary my-2 "
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setLikesModal(true);
+                            }}
+                          >
+                            {`Liked By ${currentPost?.likes?.likedBy[0]?.fullName}`}
+                            {currentPost?.likes?.likedBy?.length > 1 ? (
+                              <span>{` & ${
+                                currentPost?.likes?.likedBy?.length - 1
+                              } others`}</span>
+                            ) : null}
+                          </div>
+                        ) : null}
                 </div>
+
                 <div
-                  className={`grid grid-cols-[4rem_1fr] p-3 border text-sm 
+                  className={`grid sm:grid-cols-[4rem_1fr] sm:text-sm text-xs  border-b bg-darkbg border-secondary bg p-3 cursor-pointer dark:text-terniarycolor text-lightthemetext
         
       `}
                   onClick={(e) => e.stopPropagation()}
@@ -189,7 +236,7 @@ export const Singlepost = () => {
                       placeholder="Write your comment..."
                       value={commentInput}
                       onChange={(e) => setCommentInput(e.target.value)}
-                      className="w-full break-all  outline-none text-terniarycolor dark:text-terniarycolor text-lightthemetext text-sm mb-1 outline-none grow bg-lightthemebg  dark:bg-lightbg  "
+                      className="w-full break-all  outline-none text-lighthemetext dark:text-terniarycolor text-lightthemetext text-sm mb-1 mt-2 sm:mt-0 pr-1 sm:pr-0 outline-none grow bg-lightthemebg  dark:bg-lightbg  "
                     ></input>
                     <button
                       className="self-end px-4 py-1 bg-primary text-terniarycolor rounded-full  border-none  my-4 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -223,7 +270,13 @@ export const Singlepost = () => {
         )}
       </div>
 
-      <SuggestedUsers />
+      <div className="hidden xl:block">
+        <SearchBar />
+        <SuggestedUsers />
+      </div>
+      {likesModal ? (
+        <LikesModal post={currentPost} setLikesModal={setLikesModal} />
+      ) : null}
     </div>
   );
 };

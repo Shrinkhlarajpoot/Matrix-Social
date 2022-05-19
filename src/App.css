@@ -13,6 +13,7 @@
   
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   .active{
     border-bottom: 1px solid #32A1EC  ;
@@ -32,4 +33,23 @@
     border-radius: 15px;
     background:#32A1EC ;
   } 
+  .active_height{
+    min-height: 100vh;
+    min-width:100vw;
+  }
+
+ @media  screen and (max-width:640px) {
+   .size{
+     width:100vw;
+
+   }
+ }
+ 
+ @media screen and (max-width:485px){
+  .fold{
+    flex-direction: column;
+    justify-items: center;
+    
+  }
+ }
 

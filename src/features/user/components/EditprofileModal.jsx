@@ -61,8 +61,8 @@ export const EditprofileModal = ({ setEditModal }) => {
     setEditModal(false);
   };
   return (
-    <div className="bg-[#00000080] top-0 left-0 fixed w-full h-full z-30 flex justify-center items-center opacity-100 ">
-      <div className="w-1/3 border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1  border-primary z-20 flex flex-col py-2 px-3 flex flex-col relative">
+    <div className="bg-[#00000080] top-0 left-0 fixed w-full h-full flex justify-center items-center opacity-100 ">
+      <div className="md:w-1/3 w-96 border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1  border-primary  flex flex-col py-2 px-3 flex flex-col relative rounded">
         <span
           class="material-icons-outlined absolute top-2 right-2 text-primary cursor-pointer"
           onClick={() => setEditModal(false)}
@@ -83,7 +83,7 @@ export const EditprofileModal = ({ setEditModal }) => {
 
           <label>
             {" "}
-            <span class="material-icons-outlined absolute left-6 -bottom-1 text-primary cursor-pointer text-md">
+            <span class="material-icons-outlined absolute left-6 -bottom-1 text-primary cursor-pointer text-xs">
               photo_camera
             </span>
             <input
@@ -93,35 +93,35 @@ export const EditprofileModal = ({ setEditModal }) => {
             ></input>
           </label>
         </div>
-        <label className="mb-1 text-secondary">
+        <label className="mb-1 text-secondary text-sm">
           FullName<span className="text-red">*</span>
         </label>
         <input
           type="text"
-          className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-2 text-secondary text-sm"
+          className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-2 text-secondary text-xs"
           placeholder="Enter FullName"
           name="fullName"
           value={editInput?.fullName}
           onChange={(e) => editChangeHandler(e)}
         ></input>
-        <label className="mb-1 text-secondary">
+        <label className="mb-1 text-secondary text-sm">
           Username<span className="text-red">*</span>
         </label>
         <input
           type="text"
-          className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-2  border border-primary text-secondary text-sm"
+          className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-2  border border-primary text-secondary text-xs"
           placeholder="Enter Bio"
           name="bio"
           value={editInput?.bio}
           onChange={editChangeHandler}
         ></input>{" "}
-        <label className="mb-1 text-secondary">
+        <label className="mb-1 text-secondary text-sm">
           Website<span className="text-red">*</span>
         </label>
         <input
           type="text"
           required
-          className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-2  border border-primary text-secondary text-sm"
+          className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-2  border border-primary text-secondary text-xs"
           placeholder="Enter Website"
           name="website"
           autoFocus
