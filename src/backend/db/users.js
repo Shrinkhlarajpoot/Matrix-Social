@@ -71,13 +71,6 @@ export const users = [
     followers: [
       {
         _id: uuid(),
-        fullName: "Reecha Singh",
-        username: "reecha_singh",
-        profileImage:
-          "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650944/Matrix%20images/t8rsnkxpvlyqouypgs8k.jpg",
-      },
-      {
-        _id: uuid(),
         fullName: "Shrinkhla Rajpoot",
         username: "shrinkhla",
         profileImage:
@@ -177,7 +170,8 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     bio: "This is Himadri,Web Developer",
-    website: "https://www.himadrishah.tech",
+    website: "https://www.linkedin.com/in/himadri2110/",
+
     following: [
       {
         _id: uuid(),
@@ -188,6 +182,14 @@ export const users = [
       },
     ],
     followers: [
+      {
+        _id: uuid(),
+        fullName: "Reecha Singh",
+        username: "reecha_singh",
+        profileImage:
+          "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650944/Matrix%20images/t8rsnkxpvlyqouypgs8k.jpg",
+      },
+
       {
         _id: uuid(),
         fullName: "Pritam Kumar",
