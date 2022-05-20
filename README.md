@@ -1,5 +1,6 @@
 #  🔗[MATRIX-SOCIAL](https://matrix-social.netlify.app/)
 
+![Matrix](/public/assests/logoimg.png)
 ## Description
 Matrix Social is an Social Media App in which user can connect to various 
 peoples.It's made with react, redux-toolkit, and Tailwind Css.
