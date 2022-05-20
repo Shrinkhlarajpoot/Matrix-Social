@@ -5,10 +5,10 @@ Matrix Social is an Social Media App in which user can connect to various
 peoples.It's made with react, redux-toolkit, and Tailwind Css.
 It is mobile responsive site. It has all the features which should be present in any social media.
 ## How to run Loacally
-git clone https://github.com/Shrinkhlarajpoot/Matrix-Social.git
-cd matrix-social
-npm install
-npm start
++ git clone https://github.com/Shrinkhlarajpoot/Matrix-Social.git
++ cd matrix-social
++ npm install
++ npm start
 
 ## Features
 
