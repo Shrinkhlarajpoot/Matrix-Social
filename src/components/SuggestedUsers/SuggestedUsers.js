@@ -19,7 +19,7 @@ export const SuggestedUsers = () => {
   return (
     <>
       {filteredUsers.length ? (
-        <div className="flex flex-col justify-center gap-4 m-4 px-4 py-3 sticky top-0 rounded-md bg-lightthemebg2  dark:bg-darkbg1 h-max w-max">
+        <div className="flex flex-col justify-center gap-4 m-4 px-4 py-3  rounded-md bg-lightthemebg2  dark:bg-darkbg1 h-max w-max z-0 sticky top-20 ">
           <div className="text-lg font-bold tracking-wide dark:text-terniarycolor text-lightthemetext ">
             Suggestions
           </div>
@@ -57,6 +57,6 @@ export const SuggestedUsers = () => {
           ))}
         </div>
       ) : null}
-    </>
+   </>
   );
 };

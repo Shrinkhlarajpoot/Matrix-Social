@@ -2,8 +2,8 @@ import { UserAvatar } from "../../../components";
 
 export const FollowlistModal = ({ setFollowModal, currentUser }) => {
   return (
-    <div className="bg-[#00000080] top-0 left-0 fixed w-full h-full z-30 flex justify-center items-center">
-      <div className="w-1/3 border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1  border-primary z-20 flex flex-col py-2 px-3 relative">
+    <div className="bg-[#00000080] top-0 left-0 fixed w-full h-full  flex justify-center items-center backdrop-blur-sm z-40 ">
+      <div className="border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1  border-primary  flex flex-col py-2 px-3 relative rounded xl:w-1/2 md:w-2/3 w-5/6 z-40  ">
         <span
           class="material-icons-outlined absolute top-2 right-3 text-primary cursor-pointer"
           onClick={() => setFollowModal(false)}

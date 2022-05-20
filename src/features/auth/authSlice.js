@@ -1,6 +1,6 @@
-import axios from "axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { loginService, signUpService } from "../../services";
+import toast from "react-hot-toast";
 
 export const loginHandler = createAsyncThunk(
   "auth/loginHandler",
@@ -10,6 +10,12 @@ export const loginHandler = createAsyncThunk(
       const { data, status } =await loginService(login.input);
 
       if (status === 200) {
+        toast.success(
+          `Welcome back, ${data.foundUser.fullName.split(" ")[0]}!`,
+          {
+            icon: "👋",
+          }
+        );
         localStorage.setItem("Matrix-token", data.encodedToken);
         localStorage.setItem("Matrix-user", JSON.stringify(data.foundUser));
         return data;
@@ -29,6 +35,13 @@ export const signupHandler = createAsyncThunk(
     try {
       const { data, status } = await signUpService(signup.input)
       if (status === 201) {
+
+        toast.success(
+          `Welcome , ${data.foundUser.fullName.split(" ")[0]}!`,
+          {
+            icon: "👋",
+          }
+        );
         localStorage.setItem("Matrix-token", data.encodedToken);
         localStorage.setItem("Matrix-user", JSON.stringify(data.createdUser));
         return data;
@@ -50,9 +63,11 @@ export const authSlice = createSlice({
   },
   reducers: {
     logoutHandler: (state) => {
+      toast.success("Logged Out Sucessfully..")
       state.token = null;
       localStorage.removeItem("Matrix-token"),
         localStorage.removeItem("Matrix-user");
+        
     },
   },
   extraReducers: {

@@ -15,7 +15,7 @@ export const CommentOptionsModal = ({
   const post = posts?.find((post1) => post1._id === postId);
 
   return (
-    <div className="absolute right-10 top-8 w-fit rounded py-1 px-2 border border-primary-300 my-2 z-10 dark:bg-lightbg bg-lightthemebg2">
+    <div className="absolute right-4 top-8 w-fit rounded py-1 px-2 border border-primary-300 my-2  dark:bg-lightbg bg-lightthemebg2">
       <button
         className="px-1 cursor-pointer hover:text-primary flex items-center"
         role="button"

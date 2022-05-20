@@ -5,10 +5,13 @@ import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./app/store"
+import store from "./app/store";
+import Modal from "react-modal";
 
 // Call make Server
 makeServer();
+
+Modal.setAppElement(document.getElementById("root"));
 
 ReactDOM.render(
   <React.StrictMode>

@@ -11,6 +11,8 @@ import {
   deleteCommentService,
   editCommentService,
 } from "../../services";
+import toast from "react-hot-toast";
+import { ToastWrapper } from "../../components";
 export const getPosts = createAsyncThunk(
   "post/getPosts",
   async (_, { rejectWithValue }) => {
@@ -20,6 +22,7 @@ export const getPosts = createAsyncThunk(
         return data.posts;
       }
     } catch {
+      toast.error("Internal Server Issues...")
       return rejectWithValue([], "Error occured. Try again later.");
     }
   }
@@ -33,9 +36,11 @@ export const createPost = createAsyncThunk(
       const { data, status } = await createPostService({ input, token, user });
 
       if (status === 201) {
+        toast.success("New Post Created..")
         return data.posts;
       }
     } catch {
+      toast.error("Try Again Later...")
       return rejectWithValue([], "Error occured. Try again later.");
     }
   }
@@ -49,9 +54,12 @@ export const editPost = createAsyncThunk(
       const { data, status } = await editPostService({ token, post, input });
 
       if (status === 201) {
+        toast.success("Update Sucessfull..")
+
         return data.posts;
       }
     } catch {
+      toast.error("Try Again Later...")
       return rejectWithValue([], "Error occured. Try again later.");
     }
   }
@@ -64,9 +72,11 @@ export const deletePost = createAsyncThunk(
     try {
       const { data, status } = await deletePostService({ _id, token });
       if (status === 201) {
+        toast.success("Toast Deleted...")
         return data.posts;
       }
     } catch (err) {
+      toast.error("Try Again Later..")
       return rejectWithValue([], "Error occured. Try again later.");
     }
   }
@@ -80,9 +90,11 @@ export const likePost = createAsyncThunk(
       const { data, status } = await likePostService({ token, _id });
 
       if (status === 201) {
+        toast.success("Liked Post")
         return data.posts;
       }
     } catch {
+      toast.error("Try Again Later..")
       return rejectWithValue([], "Error occured. Try again later.");
     }
   }
@@ -123,9 +135,11 @@ export const addComment = createAsyncThunk(
       const { data, status } = await addCommentService(arg);
 
       if (status === 201) {
+        toast.success("Comment Added...")
         return data.posts;
       }
     } catch (error) {
+      toast.error("Try Again Later...")
       console.log(error.response);
       return rejectWithValue([], "Error occured. Try again later.");
     }
@@ -139,9 +153,11 @@ export const editComment = createAsyncThunk(
       const { data, status } = await editCommentService(arg);
 
       if (status === 201) {
+        toast.success("Update Successful...")
         return data.posts;
       }
     } catch {
+      toast.error("Try Again Later...")
       return rejectWithValue([], "Error occured. Try again later.");
     }
   }
@@ -150,14 +166,15 @@ export const editComment = createAsyncThunk(
 export const deleteComment = createAsyncThunk(
   "post/deleteComment",
   async (arg, { rejectWithValue }) => {
-    console.log(arg, "from delete comeent");
-    try {
+   try {
       const { data, status } = await deleteCommentService(arg);
 
       if (status === 201) {
+        toast.success("Comment Deleted...")
         return data.posts;
       }
     } catch {
+      toast.error("Try Again Later...")
       return rejectWithValue([], "Error occured. Try again later.");
     }
   }
@@ -165,9 +182,13 @@ export const deleteComment = createAsyncThunk(
 
 export const postSlice = createSlice({
   name: "post",
-  initialState: { posts: [], error: "", isLoading: false, singlepost: null },
+  initialState: { posts: [], error: "", isLoading: false, singlepost: null,activeSort:"Latest" },
 
-  reducer: {},
+  reducers: {
+    setActiveSort:(state,{payload})=>{
+      state.activeSort = payload;
+    },
+  },
   extraReducers: {
     [getPosts.pending]: (state) => {
       state.isLoading = true;
@@ -237,5 +258,5 @@ export const postSlice = createSlice({
     },
   },
 });
-
+export const {setActiveSort } = postSlice.actions;
 export default postSlice.reducer;

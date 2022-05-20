@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Login, Logout, Signup } from "../features/auth";
 
-import { Bookmarks, Explore, Home, LandingPage, Profile, Singlepost } from "../pages";
+import { Bookmarks, Explore, Home, LandingPage, PageNotFound, Profile, Singlepost } from "../pages";
 
 import { PrivateRoutes } from "./PrivateRoutes";
 
@@ -12,6 +12,7 @@ export const AppRoutes = () => {
     <div>
       <Routes>
         <Route path="/" element={<LandingPage />}></Route>
+        <Route path="*" element={<PageNotFound/>}></Route>
         {!token ? (
           <>
             <Route path="/login" element={<Login />}></Route>

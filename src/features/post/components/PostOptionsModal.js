@@ -19,9 +19,9 @@ export const PostOptionsModal = ({ setShowPostOptions, post }) => {
   const userFollowingAlready = currentUserToFollow?.followers.find(
     (followeruser) => followeruser.username === user.username
   );
-  
+
   return (
-    <div className="absolute right-1.5 top-1.1 w-fit rounded py-1 px-2 border border-primary-300 my-2 z-10 dark:bg-lightbg bg-lightthemebg2">
+    <div className="absolute right-1.5 top-1.1 w-fit rounded py-1 px-2 border border-primary-300 my-2  dark:bg-lightbg bg-lightthemebg2">
       {user.username === post.username ? (
         <>
           <button
@@ -39,10 +39,11 @@ export const PostOptionsModal = ({ setShowPostOptions, post }) => {
           </button>
           <button
             className="px-1 cursor-pointer hover:text-primary flex items-center "
-            onClick={() => {
-              if (pathname !== "/home") {
+            onClick={(e) => {
+              e.stopPropagation();
+              dispatch(deletePost({ _id: post._id, token }));
+              if (pathname === `/post/${post.id}`) {
                 navigate("/home");
-                dispatch(deletePost({ _id: post._id, token }));
               }
             }}
           >
@@ -76,7 +77,7 @@ export const PostOptionsModal = ({ setShowPostOptions, post }) => {
 
       {showNewPostModal ? (
         <div
-          className="bg-[#00000080] top-0 left-0 fixed w-full h-full z-30 flex justify-center items-center"
+          className="bg-[#00000080] top-0 left-0 fixed w-screen h-screen flex justify-center items-center rounded flex justify-center items-center backdrop-blur-sm z-40 "
           onClick={(e) => e.stopPropagation()}
         >
           <PostInput

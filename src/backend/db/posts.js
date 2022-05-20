@@ -12,13 +12,39 @@ export const posts = [
     content:
       "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.  ",
     likes: {
-      likeCount: 0,
-      likedBy: [],
+      likeCount: 2,
+      likedBy: [
+        {
+          _id: uuid(),
+
+          username: "pritam_kmr",
+          fullName: "Pritam Kumar",
+          profileImage:
+            "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650995/Matrix%20images/ubmb2eqkuevjweoloww8.jpg",
+          createdAt: "2022-5-15",
+          updatedAt: formatDate(),
+          votes: {
+            upvotedBy: [],
+            downvotedBy: [],
+          },
+        },
+
+        {
+          _id: uuid(),
+
+          username: "shubhamsoni",
+          fullName: "Shubham Soni",
+          profileImage:
+          "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652651013/Matrix%20images/hza58otqkgg7peroimdj.jpg",
+          createdAt: formatDate(),
+          updatedAt: formatDate(),
+        },
+      ],
       dislikedBy: [],
     },
     fullName: "Reecha Singh",
     username: "reecha_singh",
-    createdAt: formatDate(),
+    createdAt: "2022-5-10",
     updatedAt: formatDate(),
     comments: [
       {
@@ -37,51 +63,6 @@ export const posts = [
       },
     ],
   },
-  {
-    _id: uuid(),
-    content:
-      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-    likes: {
-      likeCount: 0,
-      likedBy: [],
-      dislikedBy: [],
-    },
-    fullName: "Mahesh Deshmukh",
-    username: "mahesh_deshmukh",
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
-    comments: [
-      {
-        _id: uuid(),
-        commentInput: "Hello Everyone..",
-        username: "pritam_kmr",
-        fullName: "Pritam Kumar",
-        profileImage:
-          "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650995/Matrix%20images/ubmb2eqkuevjweoloww8.jpg",
-        createdAt: formatDate(),
-        updatedAt: formatDate(),
-        votes: {
-          upvotedBy: [],
-          downvotedBy: [],
-        },
-      },
-    ],
-  },
-  {
-    _id: uuid(),
-    content:
-      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-    likes: {
-      likeCount: 0,
-      likedBy: [],
-      dislikedBy: [],
-    },
-    fullName: "Shrinkhla Rajpoot",
-    username: "shrinkhla",
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
-    comments: [],
-  },
 
   {
     _id: uuid(),
@@ -94,69 +75,7 @@ export const posts = [
     },
     fullName: "Shubham Soni",
     username: "shubhamsoni",
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
-    comments: [],
-  },
-  {
-    _id: uuid(),
-    content:
-      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-    likes: {
-      likeCount: 0,
-      likedBy: [],
-      dislikedBy: [],
-    },
-    fullName: "Himadri Shah",
-    username: "himadri",
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
-    comments: [
-      {
-        _id: uuid(),
-        commentInput: "Making App In React Is Fun",
-        username: "pritam_kmr",
-        fullName: "Pritam Kumar",
-        profileImage:
-          "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650995/Matrix%20images/ubmb2eqkuevjweoloww8.jpg",
-        createdAt: formatDate(),
-        updatedAt: formatDate(),
-        votes: {
-          upvotedBy: [],
-          downvotedBy: [],
-        },
-      },
-    ],
-  },
-
-  {
-    _id: uuid(),
-    content:
-      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.  ",
-    likes: {
-      likeCount: 0,
-      likedBy: [],
-      dislikedBy: [],
-    },
-    fullName: "Reecha Singh",
-    username: "reecha_singh",
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
-    comments: [],
-  },
-
-  {
-    _id: uuid(),
-    content:
-      "At  laborum et dolorum t officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-    likes: {
-      likeCount: 0,
-      likedBy: [],
-      dislikedBy: [],
-    },
-    fullName: "Shubham Soni",
-    username: "shubhamsoni",
-    createdAt: formatDate(),
+    createdAt: "2022-5-16",
     updatedAt: formatDate(),
     comments: [
       {
@@ -189,13 +108,260 @@ export const posts = [
       },
     ],
   },
+
   {
     _id: uuid(),
     content:
       "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
     likes: {
-      likeCount: 0,
-      likedBy: [],
+      likeCount: 1,
+      likedBy: [
+        {
+          _id: uuid(),
+
+          username: "pritam_kmr",
+          fullName: "Pritam Kumar",
+          profileImage:
+            "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650995/Matrix%20images/ubmb2eqkuevjweoloww8.jpg",
+          createdAt: "2022-5-17",
+          updatedAt: formatDate(),
+        },
+      ],
+      dislikedBy: [],
+    },
+    fullName: "Mahesh Deshmukh",
+    username: "mahesh_deshmukh",
+    createdAt: "2021-5-16",
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        commentInput: "Hello Everyone..",
+        username: "pritam_kmr",
+        fullName: "Pritam Kumar",
+        profileImage:
+          "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650995/Matrix%20images/ubmb2eqkuevjweoloww8.jpg",
+        createdAt: "2022-5-17",
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+  },
+
+  {
+    _id: uuid(),
+    content:
+      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    likes: {
+      likeCount: 3,
+      likedBy: [
+        {
+          _id: uuid(),
+          commentInput: "Hello Everyone..",
+          username: "pritam_kmr",
+          fullName: "Pritam Kumar",
+          profileImage:
+            "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650995/Matrix%20images/ubmb2eqkuevjweoloww8.jpg",
+          createdAt: "2022-5-17",
+          updatedAt: formatDate(),
+          votes: {
+            upvotedBy: [],
+            downvotedBy: [],
+          },
+        },
+        {
+          _id: uuid(),
+          username: "reecha_singh",
+          fullName: "Reecha Singh",
+          profileImage:
+            "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650944/Matrix%20images/t8rsnkxpvlyqouypgs8k.jpg",
+          createdAt: formatDate(),
+          updatedAt: formatDate(),
+        },
+
+        {
+          _id: uuid(),
+          username: "himadri",
+          fullName: "Himadri Shan",
+          profileImage:
+            "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650964/Matrix%20images/yoptotgqsaosmfderm91.jpg",
+          createdAt: formatDate(),
+          updatedAt: formatDate(),
+        },
+      ],
+      dislikedBy: [],
+    },
+    fullName: "Shrinkhla Rajpoot",
+    username: "shrinkhla",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    comments: [],
+  },
+
+  {
+    _id: uuid(),
+    content:
+      "At  laborum et dolorum t officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    likes: {
+      likeCount: 2,
+      likedBy: [
+        {
+          _id: uuid(),
+          username: "reecha_singh",
+          fullName: "Reecha Singh",
+          profileImage:
+            "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650944/Matrix%20images/t8rsnkxpvlyqouypgs8k.jpg",
+          createdAt: formatDate(),
+          updatedAt: formatDate(),
+        },
+
+        {
+          _id: uuid(),
+          username: "himadri",
+          fullName: "Himadri Shan",
+          profileImage:
+            "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650964/Matrix%20images/yoptotgqsaosmfderm91.jpg",
+          createdAt: formatDate(),
+          updatedAt: formatDate(),
+        },
+      ],
+      dislikedBy: [],
+    },
+    fullName: "Shubham Soni",
+    username: "shubhamsoni",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    comments: [],
+  },
+
+  {
+    _id: uuid(),
+    content:
+      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    likes: {
+      likeCount: 2,
+      likedBy: [
+        {
+          _id: uuid(),
+          username: "reecha_singh",
+          fullName: "Reecha Singh",
+          profileImage:
+            "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650944/Matrix%20images/t8rsnkxpvlyqouypgs8k.jpg",
+          createdAt: formatDate(),
+          updatedAt: formatDate(),
+        },
+
+        {
+          _id: uuid(),
+          username: "himadri",
+          fullName: "Himadri Shan",
+          profileImage:
+            "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650964/Matrix%20images/yoptotgqsaosmfderm91.jpg",
+          createdAt: formatDate(),
+          updatedAt: formatDate(),
+        },
+      ],
+      dislikedBy: [],
+    },
+    fullName: "Himadri Shah",
+    username: "himadri",
+    createdAt: "2022-5-14",
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        commentInput: "Making App In React Is Fun",
+        username: "pritam_kmr",
+        fullName: "Pritam Kumar",
+        profileImage:
+          "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650995/Matrix%20images/ubmb2eqkuevjweoloww8.jpg",
+        createdAt: "2022-5-15",
+        updatedAt: formatDate(),
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+  },
+
+  {
+    _id: uuid(),
+    content:
+      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.  ",
+    likes: {
+      likeCount: 2,
+      likedBy: [
+        {
+          _id: uuid(),
+
+          username: "shubhamsoni",
+          fullName: "Shubham Soni",
+          profileImage:
+            "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650995/Matrix%20images/ubmb2eqkuevjweoloww8.jpg",
+          createdAt: formatDate(),
+          updatedAt: formatDate(),
+        },
+
+        {
+          _id: uuid(),
+          username: "himadri",
+          fullName: "Himadri Shan",
+          profileImage:
+            "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650964/Matrix%20images/yoptotgqsaosmfderm91.jpg",
+          createdAt: formatDate(),
+          updatedAt: formatDate(),
+        },
+      ],
+      dislikedBy: [],
+    },
+    fullName: "Reecha Singh",
+    username: "reecha_singh",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    comments: [],
+  },
+
+  {
+    _id: uuid(),
+    content:
+      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    likes: {
+      likeCount: 3,
+      likedBy: [
+        {
+          _id: uuid(),
+          username: "pritam_kmr",
+          fullName: "Pritam Kumar",
+          profileImage:
+            "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650995/Matrix%20images/ubmb2eqkuevjweoloww8.jpg",
+          createdAt: formatDate(),
+          updatedAt: formatDate(),
+        },
+
+        {
+          _id: uuid(),
+          username: "shubhamsoni",
+          fullName: "Shubham Soni",
+          profileImage:
+            "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652651013/Matrix%20images/hza58otqkgg7peroimdj.jpg",
+          createdAt: formatDate(),
+          updatedAt: formatDate(),
+        },
+
+        {
+          _id: uuid(),
+          username: "himadri",
+          fullName: "Himadri Shan",
+          profileImage:
+            "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650964/Matrix%20images/yoptotgqsaosmfderm91.jpg",
+          createdAt: formatDate(),
+          updatedAt: formatDate(),
+        },
+      ],
       dislikedBy: [],
     },
     fullName: "Himadri Shah",
@@ -233,18 +399,39 @@ export const posts = [
       },
     ],
   },
+
   {
     _id: uuid(),
     content:
       "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
     likes: {
-      likeCount: 0,
-      likedBy: [],
+      likeCount: 2,
+      likedBy: [
+        {
+          _id: uuid(),
+          username: "himadri",
+          fullName: "Himari Shan",
+          profileImage:
+            "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652650964/Matrix%20images/yoptotgqsaosmfderm91.jpg",
+          createdAt: formatDate(),
+          updatedAt: formatDate(),
+        },
+
+        {
+          _id: uuid(),
+          username: "shubhamsoni",
+          fullName: "Shubham Soni",
+          profileImage:
+            "https://res.cloudinary.com/ds6cgk1wy/image/upload/v1652651013/Matrix%20images/hza58otqkgg7peroimdj.jpg",
+          createdAt: formatDate(),
+          updatedAt: formatDate(),
+        },
+      ],
       dislikedBy: [],
     },
     fullName: "Pritam Kumar",
     username: "pritam_kmr",
-    createdAt: formatDate(),
+    createdAt: "2022-5-17",
     updatedAt: formatDate(),
     comments: [],
   },

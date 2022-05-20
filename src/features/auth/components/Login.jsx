@@ -18,14 +18,14 @@ export const Login = () => {
     setLogin({ ...login, input: { ...login.input, [name]: value } });
   };
   return (
-    <div className="flex justify-center items-center w-screen h-screen dark:bg-lightbg bg-lightthemebg">
+    <div className="flex justify-center items-center w-screen h-screen dark:bg-lightbg bg-lightthemebgmd  ">
       {isLoading ? (
         <div>
           <Loader />
         </div>
       ) : (
         <form
-          className=" dark:bg-darkbg1 bg-lightthemebg2 flex flex-col justify-around  w-1/3 h-{'fit-content-fit-content'} dark:text-terniarycolor text-lightthemetext p-4 rounded border"
+          className=" dark:bg-darkbg1 bg-lightthemebg2 flex flex-col justify-around md:w-1/2  xl:w-1/3  sm:w-4/6  w-96   h-{'fit-content-fit-content'} dark:text-terniarycolor text-lightthemetext p-4 rounded border"
           autoComplete="off"
           onSubmit={(e) => {
             e.preventDefault();
@@ -48,7 +48,7 @@ export const Login = () => {
           <input
             type="text"
             required
-            className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border"
+            className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border text-sm"
             placeholder="Enter Username"
             name="username"
             autoFocus
@@ -60,7 +60,7 @@ export const Login = () => {
           </label>
           <div className="relative">
             <input
-              className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border"
+              className="min-w-full py-1 px-2 rounded dark:bg-lightbg bg-lightthemebg mb-4 cursor-pointer border text-sm"
               placeholder="Enter Password"
               type={login.hide ? "password" : "text"}
               name="password"
@@ -96,18 +96,20 @@ export const Login = () => {
               Guest Mode
             </button>
           </div>
-          <h3 className="text-center mt-2">
-            Dont have an Account?{" "}
-            <span
-              className=" text-red cursor-pointer"
-              role="button"
-              onClick={() => navigate("/signup")}
-            >
-              Sign Up
-            </span>
-          </h3>
+          <div className="flex flex-wrap justify-center align-center mt-2">
+            <h3>
+              Dont have an Account?{" "}
+              <span
+                className=" text-red cursor-pointer"
+                role="button"
+                onClick={() => navigate("/signup")}
+              >
+                Sign Up
+              </span>
+            </h3>
+          </div>
         </form>
       )}
     </div>
-)
-}
+  );
+};

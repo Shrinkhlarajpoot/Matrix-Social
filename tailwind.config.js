@@ -10,7 +10,7 @@ module.exports = {
         lightthemebg:"#F1F5F9",
         lightthemetext:"#475569",
         lightthemebg2:"#E2E8F0",
-        darkbg1:"#222222",
+        darkbg1:"#0F172A",
         red: "#ff2c2c",
         terniarycolor:"#EBE8D8",
  
