@@ -26,7 +26,6 @@ It is mobile responsive site. It has all the features which should be present in
 + REDUX-TOOLKIT
 
 ## PREVIEW
-
 ![Matrix](https://res.cloudinary.com/ds6cgk1wy/image/upload/v1653068502/umyoeusdsuszpkbpgrf6.gif)
 
 
