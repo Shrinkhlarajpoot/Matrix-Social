@@ -16,7 +16,7 @@ export const Explore = () => {
     <div className="grid grid-cols-[1fr] h-full sm:grid-cols-[7rem_1fr]  xl:grid-cols-[20rem_1fr_20rem]  bg-lightthemebg dark:bg-lightbg   lg:grid-cols-[20rem_1fr] lg:w-[98%] lg:m-auto active_height mb-20">
       <Sidebar />
       <div className="border-x border-secondary flex flex-col w-100 ">
-        <div className="h-16 sticky top-0  py-1 px-10 dark:text-terniarycolor uppercase border-b border-secondary  bg-lightthemebg2 text-lightthemetext dark:bg-darkbg1 flex justify-between items-center ">
+        <div className="h-16 sticky z-10 top-0  py-1 px-10 dark:text-terniarycolor uppercase border-b border-secondary  bg-lightthemebg2 text-lightthemetext dark:bg-darkbg1 flex justify-between items-center ">
          <span>Explore</span>
          <span
         class="material-icons text-primary text-3xl cursor-pointer "

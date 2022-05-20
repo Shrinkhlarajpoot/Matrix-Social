@@ -32,7 +32,7 @@ export const ProfileDetails = () => {
   }, [dispatch]);
  return (
     <div >
-      <div className="h-16 sticky top-0  w-100 dark:text-terniarycolor  border-b border-secondary  bg-lightthemebg2 text-lightthemetext dark:bg-darkbg1 flex justify-between items-center px-4">
+      <div className="h-16 sticky top-0  z-10 w-100 dark:text-terniarycolor  border-b border-secondary  bg-lightthemebg2 text-lightthemetext dark:bg-darkbg1 flex justify-between items-center px-4">
         <div className="flex px-2 ">
           <span
             class="material-icons-outlined pr-2 cursor-pointer"

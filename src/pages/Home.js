@@ -21,11 +21,14 @@ export const Home = () => {
   const sortedPost = sortByDate(posts, activeSort);
 
   return (
-    <div className="grid grid-cols-[1fr] sm:grid-cols-[7rem_1fr]  xl:grid-cols-[20rem_1fr_20rem]  bg-lightthemebg dark:bg-lightbg   lg:grid-cols-[20rem_1fr]  lg:m-auto -z-10 active_height pb-20 ">
+    <div className="grid grid-cols-[1fr] sm:grid-cols-[7rem_1fr]  xl:grid-cols-[20rem_1fr_20rem]  bg-lightthemebg dark:bg-lightbg   lg:grid-cols-[20rem_1fr]  lg:m-auto active_height pb-20 ">
       <Sidebar />
-
-      <div className="border-x border-secondary flex flex-col w-100 ">
-        <div className="h-16 sticky top-0  py-1 px-10 dark:text-terniarycolor uppercase border-b border-secondary  bg-lightthemebg2 text-lightthemetext dark:bg-darkbg1 flex justify-between items-center ">
+      
+       
+      <div className="border-x border-secondary flex flex-col w-100  ">
+       
+        <div className="h-16 sticky top-0 z-10 py-1 px-10 dark:text-terniarycolor backkdrop-blur-sm uppercase border-b border-secondary  bg-lightthemebg2 text-lightthemetext dark:bg-darkbg1 flex justify-between items-center ">
+          
           <span>Home</span>
 
           <span
@@ -37,6 +40,7 @@ export const Home = () => {
             {" "}
             {darkTheme === "dark" ? "dark_mode" : "light_mode"}
           </span>
+       
         </div>
         <div className="w-100 xl:hidden block">
           <SearchBar />
@@ -59,12 +63,11 @@ export const Home = () => {
           )}
         </div>
       </div>
-
-      <div className="hidden xl:block">
+     <div className="hidden xl:block">
         <SearchBar />
         <SuggestedUsers />
-        <p>HDHDHHDHDHD</p>
-      </div>
-    </div>
+        </div>
+        </div>
+  
   );
 };

@@ -19,8 +19,9 @@ const modalRef = useRef();
 useclcikoutside(modalRef,setShowSearchedModal)
 return (
   //sticky z-index:10
-    <div className="top-4 z-0 sticky  w-100" ref={modalRef} >
-        <div className="">
+    
+    <div className="top-4 xl:z-40 z-0 sticky  w-100" ref={modalRef} >
+       
     <div className=" m-4 p-2  rounded-md bg-lightthemebg2  dark:bg-darkbg1 xl:w-72 w-100 relative">
       <input
         className="w-full bg-lightthemebg dark:bg-lightbg  py-2 border border-primary  rounded-full px-3 dark:text-terniarycolor text-lightthemetext text-sm focus:outline-none"
@@ -42,7 +43,8 @@ return (
      {showSearchedModal?<SearchedUserModal/>:null}
      </div>:null}
    
-    </div>
+  
     </div> 
+    
   );
 };

@@ -50,7 +50,7 @@ export const PostCard = ({ post }) => {
             <span className="text-secondary mt-1.5 sm:mt-0">@{username} .</span>
             <span className="text-secondary sm:ml-2 mt-1.5 sm:mt-0">{getPostDate(createdAt)}</span>
           </div>
-          <div className="relative">
+          <div className="relative z-0">
             <span
               class="material-icons-outlined modal_icon px-2 py-1 hover:rounded-full hover:bg-darkbg text-base hover:text-primary"
               onClick={(e) => {
