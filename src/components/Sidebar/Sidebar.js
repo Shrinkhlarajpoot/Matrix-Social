@@ -8,14 +8,13 @@ import Modal from "react-modal";
 
 const customStyles = {
   content: {
-    width: '100%',
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    
+    width: "100%",
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
   },
 };
 
@@ -24,17 +23,8 @@ export const Sidebar = () => {
   const { user } = useSelector((state) => state.auth);
   const { darkTheme, users } = useSelector((state) => state.user);
   const [newPostModal, setNewPostModal] = useState(false);
- const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const currentUser = users.find((dbuser) => dbuser.username === user.username);
-
-
- 
-
-
-
-  function closeModal() {
-    setNewPostModal(false);
-  }
   return (
     <div className=" sm:sticky sm:h-screen  flex sm:flex-col sm:justify-between sm:py-6 sm:top-0 overflow-x-hidden overflow-y-auto fixed bottom-0 h-fit z-20 sm:z-0 ">
       <ul className="flex sm:flex-col sm:items-end sm:pr-12 sm:pr-2 sm:items-center sm:text-lg flex-row">
@@ -95,32 +85,19 @@ export const Sidebar = () => {
           </li>
           <div
             className="h-12 mt-4  w-15 h-15  bg-primary text-white  flex items-center justify-center rounded-full cursor-pointer border border-black sm:px-3 px-3 fixed bottom-20 right-1 sm:relative sm:bottom-0 "
-            onClick={(e) =>{
+            onClick={(e) => {
               e.preventDefault();
-            setNewPostModal(true)}}
+              setNewPostModal(true);
+            }}
           >
             <span className="hidden lg:block ">Add Post</span>
             <span class="material-icons-outlined z-10 ">add</span>
           </div>
         </div>
       </ul>
-      {/* <Modal
-        isOpen={newPostModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-      >      
-      <div  className=" xl:w-1/2 md:w-2/3 w-4/5 ">
-            <PostInput
-              setNewPostModal={setNewPostModal}
-              newPostModal={newPostModal}
-            />
-            </div>
- </Modal> */}
-
-
-         {newPostModal ? (
-        <div className="bg-[#00000080] fixed top-0 left-0  w-screen h-screen  flex justify-center items-center opacity-100 z-50 ">
-          <div className="xl:w-1/2 md:w-2/3 w-96 bg-lightthemebg2 sm:mx-1  dark:bg-darkbg1 border border-primary rounded z-50 ">
+      {newPostModal ? (
+        <div className="bg-[#00000080] fixed top-0 left-0  w-screen h-screen  flex justify-center items-center opacity-100 z-50 backdrop-blur-sm">
+          <div className="xl:w-1/2 md:w-2/3 w-5/6 bg-lightthemebg2 sm:mx-1  dark:bg-darkbg1 border border-primary rounded z-50 ">
             {" "}
             <PostInput
               setNewPostModal={setNewPostModal}
@@ -129,7 +106,6 @@ export const Sidebar = () => {
           </div>
         </div>
       ) : null}
-          
     </div>
   );
 };

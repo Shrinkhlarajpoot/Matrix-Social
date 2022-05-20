@@ -61,8 +61,8 @@ export const EditprofileModal = ({ setEditModal }) => {
     setEditModal(false);
   };
   return (
-    <div className="bg-[#00000080] top-0 left-0 fixed w-screen h-screen flex justify-center items-center opacity-100 z-40 overflow-y-hidden">
-      <div className="md:w-1/3 w-96 border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1  border-primary  flex flex-col py-2 px-3 flex flex-col relative rounded z-40">
+    <div className="bg-[#00000080] top-0 left-0 fixed w-screen h-screen flex justify-center items-center opacity-100 z-40 overflow-y-auto backdrop-blur-sm">
+      <div className="md:w-1/3 w-5/6 border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1  border-primary  flex flex-col py-2 px-3 flex flex-col relative rounded z-40">
         <span
           class="material-icons-outlined absolute top-2 right-2 text-primary cursor-pointer"
           onClick={() => setEditModal(false)}

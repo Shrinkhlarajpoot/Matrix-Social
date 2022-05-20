@@ -12,6 +12,7 @@ export const AppRoutes = () => {
     <div>
       <Routes>
         <Route path="/" element={<LandingPage />}></Route>
+        <Route path="*" element={<LandingPage/>}></Route>
         {!token ? (
           <>
             <Route path="/login" element={<Login />}></Route>

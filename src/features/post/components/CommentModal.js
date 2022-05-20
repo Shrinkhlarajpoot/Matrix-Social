@@ -35,9 +35,9 @@ export const CommentModal = ({
             postId: post._id,
           })
         );
-        if(setShowCommentModal){
-    setShowCommentModal(false);
-        }
+    if (setShowCommentModal) {
+      setShowCommentModal(false);
+    }
     setCommentInput("");
     newCommentRef.current.innerText = "";
   };
@@ -47,12 +47,12 @@ export const CommentModal = ({
         setCommentInput(commentAlreadyExist.comment);
     }
   }, [commentAlreadyExist]);
-return (
+  return (
     <div
-      className="bg-[#00000080] top-0 left-0 fixed w-full h-full  flex justify-center items-center"
+      className="bg-[#00000080] top-0 left-0 fixed w-screen h-screen  flex justify-center items-center backdrop-blur-sm z-40 "
       onClick={(e) => e.stopPropagation()}
     >
-      <div className="border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1  border-primary  flex flex-col py-2 px-3 relative rounded xl:w-1/2 md:w-2/3 w-96   ">
+      <div className="border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1 z-40  border-primary  flex flex-col py-2 px-3 relative rounded xl:w-1/2 md:w-2/3 w-5/6   ">
         <span
           class="material-icons-outlined absolute top-2 right-3 text-primary cursor-pointer"
           onClick={() => {
