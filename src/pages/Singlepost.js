@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { SearchBar, Sidebar, SuggestedUsers, UserAvatar } from "../components";
 import { Loader } from "../components/Loader/Loader";
+import toast from "react-hot-toast";
 import {
   CommentCard,
   dislikePost,
@@ -181,6 +182,15 @@ export const Singlepost = () => {
                       >
                         {postInBookmark ? "bookmark" : "bookmark_border"}
                       </span>
+                      <span
+            class="material-icons-outlined py-1 px-2 pr-2 hover:rounded-full text-md hover:text-primary  "
+            onClick={(e) => {
+              e.stopPropagation();
+              toast.success("Link copied");
+            }}
+          >
+            share
+          </span>
                     </div>
                   </div>
                     <div>
