@@ -1,4 +1,4 @@
-import {  useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { UserAvatar } from "../../../components";
@@ -9,6 +9,7 @@ import { likePost, dislikePost } from "../postSlice";
 import { CommentModal } from "./CommentModal";
 import { LikesModal } from "./LikesModal";
 import { PostOptionsModal } from "./PostOptionsModal";
+import toast from "react-hot-toast";
 export const PostCard = ({ post }) => {
   const [showpostOptions, setShowPostOptions] = useState(false);
   const [showCommentModal, setShowCommentModal] = useState(false);
@@ -17,8 +18,8 @@ export const PostCard = ({ post }) => {
   const { bookmarks, users } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const postRef = useRef();
-  const [likesModal,setLikesModal] = useState(false)
-  const { username, fullName, content, _id, likes, id, createdAt} = post;
+  const [likesModal, setLikesModal] = useState(false);
+  const { username, fullName, content, _id, likes, id, createdAt } = post;
   const postInBookmark = postInBookmarks(bookmarks, post._id);
   const currentpostUser = users?.find(
     (user1) => user1.username === post.username
@@ -46,9 +47,13 @@ export const PostCard = ({ post }) => {
       <div className="flex flex-col gap1 gap-y-3 pb-4">
         <div className="flex justify-between">
           <div className="flex items-center gap-1 flex-wrap ">
-            <span className="font-bold tracking-wide mt-2 sm:mt-0">{fullName}</span>
+            <span className="font-bold tracking-wide mt-2 sm:mt-0">
+              {fullName}
+            </span>
             <span className="text-secondary mt-1.5 sm:mt-0">@{username} .</span>
-            <span className="text-secondary sm:ml-2 mt-1.5 sm:mt-0">{getPostDate(createdAt)}</span>
+            <span className="text-secondary sm:ml-2 mt-1.5 sm:mt-0">
+              {getPostDate(createdAt)}
+            </span>
           </div>
           <div className="relative z-0">
             <span
@@ -71,7 +76,7 @@ export const PostCard = ({ post }) => {
           </div>
         </div>
         <div className="break-all">{content}</div>
-        <div className="flex gap-4 mt-1 justify-between ">
+        <div className="flex  mt-1 justify-between ">
           <div className="flex items-center">
             <span
               class={`material-icons-outlined py-1 px-2 hover:rounded-full  text-md hover:text-primary ${
@@ -87,7 +92,6 @@ export const PostCard = ({ post }) => {
               thumb_up_off_alt
             </span>
             {likes.likeCount > 0 && likes.likeCount}
-            
           </div>
           <div className="flex items-center ">
             <span
@@ -115,20 +119,37 @@ export const PostCard = ({ post }) => {
           >
             {postInBookmark ? "bookmark" : "bookmark_border"}
           </span>
-
+          <span
+            class="material-icons-outlined py-1 px-2 pr-2 hover:rounded-full text-md hover:text-primary  "
+            onClick={(e) => {
+              e.stopPropagation();
+              toast.success("Link copied");
+            }}
+          >
+            share
+          </span>
         </div>
-       {likes?.likedBy?.length>0?<div className="text-xs hover:text-primary "
-       onClick={(e)=>{
-         e.stopPropagation()
-         setLikesModal(true)}}
-       
-       >{`Liked By ${likes?.likedBy[0]?.fullName}`}{likes?.likedBy?.length>1?<span>{` & ${likes?.likedBy?.length-1} others`}</span>:null}</div>:null}
+        {likes?.likedBy?.length > 0 ? (
+          <div
+            className="text-xs hover:text-primary "
+            onClick={(e) => {
+              e.stopPropagation();
+              setLikesModal(true);
+            }}
+          >
+            {`Liked By ${likes?.likedBy[0]?.fullName}`}
+            {likes?.likedBy?.length > 1 ? (
+              <span>{` & ${likes?.likedBy?.length - 1} others`}</span>
+            ) : null}
+          </div>
+        ) : null}
       </div>
       {showCommentModal ? (
         <CommentModal setShowCommentModal={setShowCommentModal} post={post} />
       ) : null}
-      {likesModal?<LikesModal post={post} setLikesModal={setLikesModal}/>:null}
+      {likesModal ? (
+        <LikesModal post={post} setLikesModal={setLikesModal} />
+      ) : null}
     </div>
-    
   );
 };
