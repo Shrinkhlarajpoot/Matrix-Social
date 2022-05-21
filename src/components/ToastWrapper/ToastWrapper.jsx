@@ -4,7 +4,7 @@ export const ToastWrapper = () => {
   return (
     <>
       <Toaster
-        position="bottom-right"
+        position="top-right"
         reverseOrder={false}
         containerStyle={{
           bottom: "1rem",
