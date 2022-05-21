@@ -1,11 +1,17 @@
-#  🔗[MATRIX-SOCIAL](https://matrix-social.netlify.app/)
+# 🔗[MATRIX-SOCIAL](https://matrix-social.netlify.app/)
 
-![Matrix](/public/assests/logoimg.png)
 ## Description
 Matrix Social is an Social Media App in which user can connect to various 
 peoples.It's made with react, redux-toolkit, and Tailwind Css.
 It is mobile responsive site. It has all the features which should be present in any social media.
+## How to run Loacally
++ git clone https://github.com/Shrinkhlarajpoot/Matrix-Social.git
++ cd matrix-social
++ npm install
++ npm start
+
 ## Features
+
 + Authentication-Login,Signin,Logout
 + Post Creation
 + Post Deletion
@@ -27,7 +33,7 @@ It is mobile responsive site. It has all the features which should be present in
 + REDUX-TOOLKIT
 
 ## PREVIEW
-![Matrix]("https://res.cloudinary.com/ds6cgk1wy/image/upload/v1653068502/umyoeusdsuszpkbpgrf6.gif")
+![Matrix](https://res.cloudinary.com/ds6cgk1wy/image/upload/v1653073198/Matrix%20images/wotkzf8myrpon4wvufcp.gif)
 
 
 
