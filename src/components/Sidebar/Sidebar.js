@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
-import { PostInput } from "../../features/post";
+import { PostInput, PostModal } from "../../features/post";
 import { toggleTheme } from "../../features/user";
 import { UserAvatar } from "../UserAvatar/UserAvatar";
 import Modal from "react-modal";
@@ -99,7 +99,7 @@ export const Sidebar = () => {
         <div className="bg-[#00000080] fixed top-0 left-0  w-screen h-screen  flex justify-center items-center opacity-100 z-50 backdrop-blur-sm">
           <div className="xl:w-1/2 md:w-2/3 w-5/6 bg-lightthemebg2 sm:mx-1  dark:bg-darkbg1 border border-primary rounded z-50 ">
             {" "}
-            <PostInput
+            <PostModal
               setNewPostModal={setNewPostModal}
               newPostModal={newPostModal}
             />

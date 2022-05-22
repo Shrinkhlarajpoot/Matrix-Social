@@ -12,7 +12,6 @@ import {
   editCommentService,
 } from "../../services";
 import toast from "react-hot-toast";
-import { ToastWrapper } from "../../components";
 export const getPosts = createAsyncThunk(
   "post/getPosts",
   async (_, { rejectWithValue }) => {
@@ -21,7 +20,8 @@ export const getPosts = createAsyncThunk(
       if (status === 200) {
         return data.posts;
       }
-    } catch {
+    } catch(error) {
+      console.error(error)
       toast.error("Internal Server Issues...")
       return rejectWithValue([], "Error occured. Try again later.");
     }
@@ -30,16 +30,15 @@ export const getPosts = createAsyncThunk(
 export const createPost = createAsyncThunk(
   "post/createPost",
   async (arg, { rejectWithValue }) => {
-    const { input, token, user } = arg;
-
-    try {
-      const { data, status } = await createPostService({ input, token, user });
+   try {
+      const { data, status } = await createPostService(arg);
 
       if (status === 201) {
         toast.success("New Post Created..")
         return data.posts;
       }
-    } catch {
+    } catch(error) {
+      console.error(error)
       toast.error("Try Again Later...")
       return rejectWithValue([], "Error occured. Try again later.");
     }
@@ -48,17 +47,16 @@ export const createPost = createAsyncThunk(
 export const editPost = createAsyncThunk(
   "post/editPost",
   async (arg, { rejectWithValue }) => {
-    const { token, post, input } = arg;
-
-    try {
-      const { data, status } = await editPostService({ token, post, input });
+  try {
+      const { data, status } = await editPostService(arg);
 
       if (status === 201) {
         toast.success("Update Sucessfull..")
 
         return data.posts;
       }
-    } catch {
+    } catch(error) {
+      console.error(error)
       toast.error("Try Again Later...")
       return rejectWithValue([], "Error occured. Try again later.");
     }
@@ -76,6 +74,7 @@ export const deletePost = createAsyncThunk(
         return data.posts;
       }
     } catch (err) {
+      console.error(err)
       toast.error("Try Again Later..")
       return rejectWithValue([], "Error occured. Try again later.");
     }
@@ -93,7 +92,8 @@ export const likePost = createAsyncThunk(
         toast.success("Liked Post")
         return data.posts;
       }
-    } catch {
+    } catch(error) {
+      console.error(error)
       toast.error("Try Again Later..")
       return rejectWithValue([], "Error occured. Try again later.");
     }
@@ -110,7 +110,8 @@ export const dislikePost = createAsyncThunk(
       if (status === 201) {
         return data.posts;
       }
-    } catch {
+    } catch(error) {
+      console.error(error)
       return rejectWithValue([], "Error occured. Try again later.");
     }
   }
@@ -123,7 +124,8 @@ export const getSinglePost = createAsyncThunk(
       if (status === 200) {
         return data.post;
       }
-    } catch {
+    } catch(error){
+      console.error(error)
       return rejectWithValue([], "Error occured. Try again later.");
     }
   }
@@ -140,7 +142,7 @@ export const addComment = createAsyncThunk(
       }
     } catch (error) {
       toast.error("Try Again Later...")
-      console.log(error.response);
+      console.error(error);
       return rejectWithValue([], "Error occured. Try again later.");
     }
   }
@@ -156,7 +158,8 @@ export const editComment = createAsyncThunk(
         toast.success("Update Successful...")
         return data.posts;
       }
-    } catch {
+    } catch(error) {
+      console.error(error)
       toast.error("Try Again Later...")
       return rejectWithValue([], "Error occured. Try again later.");
     }
@@ -173,7 +176,8 @@ export const deleteComment = createAsyncThunk(
         toast.success("Comment Deleted...")
         return data.posts;
       }
-    } catch {
+    } catch(error) {
+      console.error(error)
       toast.error("Try Again Later...")
       return rejectWithValue([], "Error occured. Try again later.");
     }

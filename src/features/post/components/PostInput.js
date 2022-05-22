@@ -3,45 +3,40 @@ import { UserAvatar } from "../../../components";
 import { useDispatch, useSelector } from "react-redux";
 import { createPost, editPost } from "../postSlice";
 import { useRef, useState, useEffect } from "react";
+import toast from "react-hot-toast";
+import { uploadImage } from "../../../utils";
 
-export const PostInput = ({
-  post,
-  setNewPostModal,
-  setShowPostOptions,
-  newPostModal,
-}) => {
+export const PostInput = ({}) => {
   const [input, setInput] = useState("");
+  const [image, setImage] = useState(null);
   const newPostRef = useRef();
   const { token, user, isLoading } = useSelector((state) => state.auth);
   const { users } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const submitPost = (e) => {
+  const submitPost = async (e) => {
     e.preventDefault();
-    if (post) {
-      dispatch(editPost({ input, token, post }));
-      setShowPostOptions(false);
-    } else {
-      dispatch(createPost({ input, token, user }));
-    }
-    if (newPostModal) {
-      setNewPostModal(false);
-    }
+    if (image) {
+      const resp = await uploadImage(image);
+      dispatch(
+        createPost({
+          input,
+          image: resp.url,
+          imageAlt: resp.original_filename,
+          token,
+          user,
+        })
+      );
+    } else
+      dispatch(createPost({ input, image: "", imageAlt: "", token, user }));
+
     setInput("");
+    setImage(null);
     newPostRef.current.innerText = "";
   };
-  useEffect(() => {
-    if (post) newPostRef.current.innerText = post.content;
-  }, [post]);
+
   const currentUser = users?.find((user1) => user1.username === user.username);
   return (
-    <div
-      className={`grid sm:grid-cols-[4rem_1fr] p-3 border-b border-secondary text-sm w-100 grid-cols-[1fr] ${
-        post
-          ? " border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1  border-primary  rounded xl:w-1/2 md:w-2/3 w-5/6 z-40 "
-          : ""
-      }`}
-      onClick={(e) => e.stopPropagation()}
-    >
+    <div className="grid sm:grid-cols-[4rem_1fr] p-3 border-b border-secondary text-sm w-100 grid-cols-[1fr]">
       <UserAvatar user={currentUser} />
       <form className="flex flex-col" onSubmit={submitPost}>
         <div
@@ -52,27 +47,43 @@ export const PostInput = ({
           className="w-full break-all  outline-none dark:text-terniarycolor text-lightthemetext text-sm mb-1 mt-1 sm:mt-0 "
           onInput={(e) => setInput(e.currentTarget.textContent)}
         ></div>
-        <div className="self-end ">
-          {post || newPostModal ? (
+        {image ? (
+          <div className="relative w-100 m-auto">
+            <img
+              src={URL.createObjectURL(image)}
+              className="w-100 h-auto rounded-md m-auto mt-2"
+              alt="demo"
+            />
             <button
-              className="px-4 py-1 bg-primary text-terniarycolor rounded-full  border-x my-4 mr-2 border-none"
-              onClick={(e) => {
-                e.stopPropagation();
-                setNewPostModal(false);
-                if (setShowPostOptions) {
-                  setShowPostOptions(false);
-                }
-              }}
+              type="button"
+              className="absolute w-100 top-4 left-4 text-lg text-primary"
+              onClick={() => setImage(null)}
             >
-              Cancel
+              <span class="material-icons-outlined">cancel</span>
             </button>
-          ) : null}
+          </div>
+        ) : null}
+        <div className="self-end flex items-center ">
+          <label className="cursor">
+            <input
+              type="file"
+              className="hidden"
+              onChange={(e) =>
+                Math.round(e.target.files[0].size / 1024000) > 1
+                  ? toast.error("File size should not be more than 1MB")
+                  : setImage(e.target.files[0])
+              }
+            ></input>
+            <span class="material-icons-outlined mr-2 mt-1 text-primary cursor-pointer">
+              image
+            </span>
+          </label>
           <button
             className="self-end px-4 py-1 bg-primary text-terniarycolor rounded-full  border-none  my-4 disabled:opacity-50 disabled:cursor-not-allowed"
-            disabled={!input.trim() || (post && input.trim() === post.content)}
+            disabled={!input.trim() && !image}
             type="submit"
           >
-            {post ? "Save" : "Post"}
+            Post
           </button>
         </div>
       </form>

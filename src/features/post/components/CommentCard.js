@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { formatDate } from "../../../backend/utils/authUtils";
 import { UserAvatar } from "../../../components";
 import { useclcikoutside } from "../../../hooks/useclickoutside";
 import { getPostDate } from "../../../utils";

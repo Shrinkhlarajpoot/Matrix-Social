@@ -127,7 +127,16 @@ export const Singlepost = () => {
                         )}
                       </div>
                     </div>
-                    <div className="break-all mb- pr-1">{currentPost?.content}</div>
+                    <div className="break-all mb- pr-1">
+                      {currentPost?.content}
+                    </div>
+                    {currentPost?.image ? (
+                      <img
+                        src={currentPost?.image}
+                        alt={currentPost?.imageAlt}
+                        className="w-1/2 h-auto rounded-md m-auto"
+                      ></img>
+                    ) : null}
                     <div className="flex  mt-4 justify-between pt-4">
                       <div className="flex flex-col">
                         <div className="flex items-center">
@@ -152,7 +161,6 @@ export const Singlepost = () => {
                           </span>
                           {currentPost?.likes?.likeCount > 0 &&
                             currentPost?.likes?.likeCount}
-
                         </div>
                       </div>
                       <div className="flex items-center">
@@ -183,34 +191,33 @@ export const Singlepost = () => {
                         {postInBookmark ? "bookmark" : "bookmark_border"}
                       </span>
                       <span
-            class="material-icons-outlined py-1 px-2 pr-2 hover:rounded-full text-md hover:text-primary  "
-            onClick={(e) => {
-              e.stopPropagation();
-              toast.success("Link copied");
-            }}
-          >
-            share
-          </span>
+                        class="material-icons-outlined py-1 px-2 pr-2 hover:rounded-full text-md hover:text-primary  "
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toast.success("Link copied");
+                        }}
+                      >
+                        share
+                      </span>
                     </div>
                   </div>
-                    <div>
-                  
-                        </div> {currentPost?.likes?.likedBy?.length > 0 ? (
-                          <div
-                            className="text-xs hover:text-primary my-2 "
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setLikesModal(true);
-                            }}
-                          >
-                            {`Liked By ${currentPost?.likes?.likedBy[0]?.fullName}`}
-                            {currentPost?.likes?.likedBy?.length > 1 ? (
-                              <span>{` & ${
-                                currentPost?.likes?.likedBy?.length - 1
-                              } others`}</span>
-                            ) : null}
-                          </div>
-                        ) : null}
+                  <div></div>{" "}
+                  {currentPost?.likes?.likedBy?.length > 0 ? (
+                    <div
+                      className="text-xs hover:text-primary my-2 "
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setLikesModal(true);
+                      }}
+                    >
+                      {`Liked By ${currentPost?.likes?.likedBy[0]?.fullName}`}
+                      {currentPost?.likes?.likedBy?.length > 1 ? (
+                        <span>{` & ${
+                          currentPost?.likes?.likedBy?.length - 1
+                        } others`}</span>
+                      ) : null}
+                    </div>
+                  ) : null}
                 </div>
 
                 <div

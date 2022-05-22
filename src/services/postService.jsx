@@ -4,20 +4,20 @@ export const getAllPostsService = () => {
   return axios.get("/api/posts");
 };
 
-export const createPostService = ({ input, token, user }) => {
+export const createPostService = ({ input,image,imageAlt, token, user }) => {
   return axios.post(
     "/api/posts",
-    { postData: { content: input, fullName: user.fullName } },
+    { postData: { content: input,image,imageAlt, fullName: user.fullName } },
     {
       headers: { authorization: token },
     }
   );
 };
 
-export const editPostService = ({ token, post, input }) => {
+export const editPostService = ({ token,image,imageAlt, post, input }) => {
   return axios.post(
     `/api/posts/edit/${post._id}`,
-    { postData: { content: input } },
+    { postData: { content: input,image,imageAlt } },
     {
       headers: { authorization: token },
     }

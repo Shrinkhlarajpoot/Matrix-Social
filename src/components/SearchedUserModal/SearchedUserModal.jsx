@@ -8,7 +8,6 @@ export const SearchedUserModal = () => {
   const { searchList } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   return (
     <div className="flex flex-col items-start gap-2 cursor-pointer dark:bg-lightbg bg-lightthemebg px-1 py-2 sm:w-72 w-56  ml-4 absolute border border-primary z-40 ">
       {searchList.length ? (

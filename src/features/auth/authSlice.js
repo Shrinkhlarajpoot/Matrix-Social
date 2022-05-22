@@ -21,7 +21,7 @@ export const loginHandler = createAsyncThunk(
         return data;
       }
     } catch (error) {
-      console.log(error.response.statusText);
+      console.error(error);
       setLogin({ ...login, error: error.response.statusText });
       return rejectWithValue(false);
     }
@@ -47,7 +47,7 @@ export const signupHandler = createAsyncThunk(
         return data;
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       setSignup({ ...signup, error: error.response.statusText });
       return rejectWithValue(false);
     }
