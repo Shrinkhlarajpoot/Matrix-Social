@@ -84,7 +84,7 @@ export const Singlepost = () => {
           <Loader />
         ) : (
           <>
-            {currentPost !== null ? (
+            {currentPost ? (
               <>
                 <div
                   className="grid sm:grid-cols-[4rem_1fr] sm:text-sm text-xs  border-b bg-darkbg border-secondary bg p-3 cursor-pointer dark:text-terniarycolor text-lightthemetext"
