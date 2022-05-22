@@ -69,9 +69,9 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At  laborum et dolorum t officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-      image:null,
-      imageAlt:"",
+      "Coding in react is soo amazing",
+      image:"https://res.cloudinary.com/ds6cgk1wy/image/upload/v1653243161/matrix%20images/lala_qzvnw3.webp",
+      imageAlt:"UseMemo",
       likes: {
       likeCount: 0,
       likedBy: [],
