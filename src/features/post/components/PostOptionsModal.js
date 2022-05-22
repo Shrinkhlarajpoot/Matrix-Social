@@ -43,9 +43,9 @@ export const PostOptionsModal = ({ setShowPostOptions, post }) => {
             onClick={(e) => {
               e.stopPropagation();
               dispatch(deletePost({ _id: post._id, token }));
-              if (pathname === `/post/${post.id}`) {
-                navigate("/home");
-              }
+                if (pathname === `/post/${post.id}`) {
+               navigate("/home");}
+            
             }}
           >
             <span class="material-icons modal_icon  py-1 px-2  text-base hover:text-primary">
