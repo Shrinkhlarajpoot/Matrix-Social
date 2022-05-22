@@ -70,7 +70,7 @@ export const deletePost = createAsyncThunk(
     try {
       const { data, status } = await deletePostService({ _id, token });
       if (status === 201) {
-        toast.success("Toast Deleted...")
+        toast.success("Post Deleted...")
         return data.posts;
       }
     } catch (err) {
