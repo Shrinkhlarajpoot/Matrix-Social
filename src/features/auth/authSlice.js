@@ -22,6 +22,7 @@ export const loginHandler = createAsyncThunk(
       }
     } catch (error) {
       console.error(error);
+      toast.error("Invalid Username or Password")
       setLogin({ ...login, error: error.response.statusText });
       return rejectWithValue(false);
     }
@@ -48,6 +49,7 @@ export const signupHandler = createAsyncThunk(
       }
     } catch (error) {
       console.error(error);
+      toast.error("Email or Username Already Exits")
       setSignup({ ...signup, error: error.response.statusText });
       return rejectWithValue(false);
     }
