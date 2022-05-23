@@ -97,7 +97,7 @@ export const EditprofileModal = ({ setEditModal }) => {
           </label>
         </div>
         <label className="mb-1 text-secondary text-sm">
-          FullName<span className="text-red">*</span>
+          FullName
         </label>
         <input
           type="text"
@@ -108,7 +108,7 @@ export const EditprofileModal = ({ setEditModal }) => {
           onChange={(e) => editChangeHandler(e)}
         ></input>
         <label className="mb-1 text-secondary text-sm">
-          Username<span className="text-red">*</span>
+          Bio
         </label>
         <input
           type="text"
@@ -119,7 +119,7 @@ export const EditprofileModal = ({ setEditModal }) => {
           onChange={editChangeHandler}
         ></input>{" "}
         <label className="mb-1 text-secondary text-sm">
-          Website<span className="text-red">*</span>
+          Website
         </label>
         <input
           type="text"
