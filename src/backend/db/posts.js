@@ -11,7 +11,9 @@ export const posts = [
     _id: uuid(),
     content:
       "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.  ",
-    likes: {
+      image:null,
+      imageAlt:"",
+      likes: {
       likeCount: 2,
       likedBy: [
         {
@@ -67,8 +69,10 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At  laborum et dolorum t officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-    likes: {
+      "Coding in react is soo amazing",
+      image:"https://res.cloudinary.com/ds6cgk1wy/image/upload/v1653243161/matrix%20images/lala_qzvnw3.webp",
+      imageAlt:"UseMemo",
+      likes: {
       likeCount: 0,
       likedBy: [],
       dislikedBy: [],
@@ -111,6 +115,8 @@ export const posts = [
 
   {
     _id: uuid(),
+    image:null,
+    imageAlt:"",
     content:
       "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
     likes: {
@@ -155,7 +161,9 @@ export const posts = [
     _id: uuid(),
     content:
       "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-    likes: {
+      image:null,
+      imageAlt:"",
+      likes: {
       likeCount: 3,
       likedBy: [
         {
@@ -205,7 +213,9 @@ export const posts = [
     _id: uuid(),
     content:
       "At  laborum et dolorum t officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-    likes: {
+      image:null,
+      imageAlt:"",
+      likes: {
       likeCount: 2,
       likedBy: [
         {
@@ -241,7 +251,9 @@ export const posts = [
     _id: uuid(),
     content:
       "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-    likes: {
+      image:null,
+      imageAlt:"",
+      likes: {
       likeCount: 2,
       likedBy: [
         {
@@ -292,7 +304,9 @@ export const posts = [
     _id: uuid(),
     content:
       "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.  ",
-    likes: {
+      image:null,
+      imageAlt:"",
+      likes: {
       likeCount: 2,
       likedBy: [
         {
@@ -329,7 +343,9 @@ export const posts = [
     _id: uuid(),
     content:
       "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-    likes: {
+      image:null,
+      imageAlt:"",
+      likes: {
       likeCount: 3,
       likedBy: [
         {
@@ -404,7 +420,9 @@ export const posts = [
     _id: uuid(),
     content:
       "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-    likes: {
+      image:null,
+      imageAlt:"",
+      likes: {
       likeCount: 2,
       likedBy: [
         {

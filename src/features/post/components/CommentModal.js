@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { UserAvatar } from "../../../components";
+import { useclcikoutside } from "../../../hooks/useclickoutside";
 import { addComment, editComment } from "../postSlice";
 
 export const CommentModal = ({
@@ -17,6 +18,8 @@ export const CommentModal = ({
   const dispatch = useDispatch();
   const commentId = commentAlreadyExist?._id;
   const postUser = users?.find((user) => user?.username === post?.username);
+  const modalRef = useRef();
+  useclcikoutside(modalRef,setShowCommentModal)
   const submitHandler = (e) => {
     e.preventDefault();
     commentAlreadyExist
@@ -52,7 +55,7 @@ export const CommentModal = ({
       className="bg-[#00000080] top-0 left-0 fixed w-screen h-screen  flex justify-center items-center backdrop-blur-sm z-40 "
       onClick={(e) => e.stopPropagation()}
     >
-      <div className="border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1 z-40  border-primary  flex flex-col py-2 px-3 relative rounded xl:w-1/2 md:w-2/3 w-5/6   ">
+      <div className="border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1 z-40  border-primary  flex flex-col py-2 px-3 relative rounded xl:w-1/2 md:w-2/3 w-5/6   " ref={modalRef}>
         <span
           class="material-icons-outlined absolute top-2 right-3 text-primary cursor-pointer"
           onClick={() => {

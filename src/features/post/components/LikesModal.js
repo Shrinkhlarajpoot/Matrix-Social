@@ -1,15 +1,19 @@
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserAvatar } from "../../../components";
+import { useclcikoutside } from "../../../hooks/useclickoutside";
 
 export const LikesModal = ({ setLikesModal, post }) => {
   const navigate = useNavigate();
+  const modalRef = useRef();
+  useclcikoutside(modalRef,setLikesModal)
 
   return (
     <div
       className="bg-[#00000080] top-0 left-0 fixed w-screen h-screen flex justify-center items-center backdrop-blur-sm  "
       onClick={(e) => e.stopPropagation()}
     >
-      <div className="border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1  border-primary flex flex-col py-2 px-3 relative rounded xl:w-1/2 md:w-2/3 w-5/6  ">
+      <div className="border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1  border-primary flex flex-col py-2 px-3 relative rounded xl:w-1/2 md:w-2/3 w-5/6  " ref={modalRef}>
         <span
           class="material-icons-outlined absolute top-2 right-3 text-primary cursor-pointer"
           onClick={() => setLikesModal(false)}

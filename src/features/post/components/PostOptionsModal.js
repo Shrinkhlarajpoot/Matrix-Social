@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
+import { PostModal } from "..";
 import { postInBookmarks } from "../../../utils";
 import { followUser, getAllUsers, unfollowUser } from "../../user";
 import { deletePost } from "../postSlice";
@@ -42,9 +43,9 @@ export const PostOptionsModal = ({ setShowPostOptions, post }) => {
             onClick={(e) => {
               e.stopPropagation();
               dispatch(deletePost({ _id: post._id, token }));
-              if (pathname === `/post/${post.id}`) {
-                navigate("/home");
-              }
+                if (pathname === `/post/${post.id}`) {
+               navigate("/home");}
+            
             }}
           >
             <span class="material-icons modal_icon  py-1 px-2  text-base hover:text-primary">
@@ -80,7 +81,7 @@ export const PostOptionsModal = ({ setShowPostOptions, post }) => {
           className="bg-[#00000080] top-0 left-0 fixed w-screen h-screen flex justify-center items-center rounded flex justify-center items-center backdrop-blur-sm z-40 "
           onClick={(e) => e.stopPropagation()}
         >
-          <PostInput
+          <PostModal
             setNewPostModal={setNewPostModal}
             setShowPostOptions={setShowPostOptions}
             post={post}

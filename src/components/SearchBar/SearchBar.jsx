@@ -7,9 +7,6 @@ import { debounceSearch } from "../../utils";
 
 import { SearchedUserModal } from "../SearchedUserModal/SearchedUserModal";
 
-
-
-
 export const SearchBar = () => {
 const {searchterm} =useSelector((state)=>state.user);
 const dispatch = useDispatch();
@@ -18,9 +15,7 @@ const [showSearchedModal,setShowSearchedModal] = useState(true);
 const modalRef = useRef();
 useclcikoutside(modalRef,setShowSearchedModal)
 return (
-  //sticky z-index:10
-    
-    <div className="top-4 xl:z-40 z-0 sticky  w-100" ref={modalRef} >
+  <div className="top-4 xl:z-40 z-0 sticky  w-100" ref={modalRef} >
        
     <div className=" m-4 p-2  rounded-md bg-lightthemebg2  dark:bg-darkbg1 xl:w-72 w-100 relative">
       <input

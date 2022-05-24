@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { UserAvatar } from "../../../components";
+import { useclcikoutside } from "../../../hooks/useclickoutside";
 import { getAllUsers, setLoading, updateProfile } from "../userSlice";
 export const EditprofileModal = ({ setEditModal }) => {
   const { token, user } = useSelector((state) => state.auth);
@@ -18,6 +19,8 @@ export const EditprofileModal = ({ setEditModal }) => {
     const { name, value } = e.target;
     setEditInput(() => ({ ...editInput, [name]: value }));
   };
+  const modalRef = useRef();
+  useclcikoutside(modalRef,setEditModal)
   const cloudnary_url =
     "https://api.cloudinary.com/v1_1/ds6cgk1wy/image/upload";
   const uploadImageFile = async () => {
@@ -62,7 +65,7 @@ export const EditprofileModal = ({ setEditModal }) => {
   };
   return (
     <div className="bg-[#00000080] top-0 left-0 fixed w-screen h-screen flex justify-center items-center opacity-100 z-40 overflow-y-auto backdrop-blur-sm">
-      <div className="md:w-1/3 w-5/6 border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1  border-primary  flex flex-col py-2 px-3 flex flex-col relative rounded z-40">
+      <div className="md:w-1/3 w-5/6 border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1  border-primary  flex flex-col py-2 px-3 flex flex-col relative rounded z-40" ref={modalRef}>
         <span
           class="material-icons-outlined absolute top-2 right-2 text-primary cursor-pointer"
           onClick={() => setEditModal(false)}
@@ -94,7 +97,7 @@ export const EditprofileModal = ({ setEditModal }) => {
           </label>
         </div>
         <label className="mb-1 text-secondary text-sm">
-          FullName<span className="text-red">*</span>
+          FullName
         </label>
         <input
           type="text"
@@ -105,7 +108,7 @@ export const EditprofileModal = ({ setEditModal }) => {
           onChange={(e) => editChangeHandler(e)}
         ></input>
         <label className="mb-1 text-secondary text-sm">
-          Username<span className="text-red">*</span>
+          Bio
         </label>
         <input
           type="text"
@@ -116,7 +119,7 @@ export const EditprofileModal = ({ setEditModal }) => {
           onChange={editChangeHandler}
         ></input>{" "}
         <label className="mb-1 text-secondary text-sm">
-          Website<span className="text-red">*</span>
+          Website
         </label>
         <input
           type="text"

@@ -38,7 +38,7 @@ const LandingPage = () => {
               Matrix:
             </span>
             <span className="text-2xl sm:text-3xl">
-              Social Media for Fun...
+              Social Media for Fun!
             </span>
           </h3>
           <div className="text-red pb-20 text-center">Join Matrix today</div>

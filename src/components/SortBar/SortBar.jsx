@@ -28,7 +28,7 @@ export const SortBar = () => {
          
         >
           <button
-            className="px-1 cursor-pointer hover:text-primary flex items-center "
+            className={`px-1 cursor-pointer hover:text-primary flex items-center ${activeSort==="Trending"?"text-primary":""}`}
             role="button"
             onClick={() => {
               dispatch(setActiveSort("Trending"));
@@ -40,7 +40,7 @@ export const SortBar = () => {
             Trending
           </button>
           <button
-            className="px-1 cursor-pointer hover:text-primary flex items-center"
+            className={`px-1 cursor-pointer hover:text-primary flex items-center ${activeSort==="Latest"?"text-primary":""}`}
             onClick={() => {
               dispatch(setActiveSort("Latest"));
             }}
@@ -51,7 +51,7 @@ export const SortBar = () => {
             Latest
           </button>
           <button
-            className="px-1 cursor-pointer hover:text-primary flex items-center  "
+            className={`px-1 cursor-pointer hover:text-primary flex items-center ${activeSort==="Oldest"?"text-primary":""}`}
             onClick={() => {
               dispatch(setActiveSort("Oldest"));
             }}

@@ -76,6 +76,13 @@ export const PostCard = ({ post }) => {
           </div>
         </div>
         <div className="break-all">{content}</div>
+        {post?.image ? (
+          <img
+            src={post?.image}
+            className="w-2/3 h-auto rounded-md  m-auto"
+            alt={post?.imageAlt}
+          ></img>
+        ) : null}
         <div className="flex  mt-1 justify-between ">
           <div className="flex items-center">
             <span

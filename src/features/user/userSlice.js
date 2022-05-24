@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import user from ".";
 import {
   getAllUserService,
   getBookmarkService,
@@ -19,7 +18,8 @@ export const getAllUsers = createAsyncThunk(
       if (status === 200) {
         return data.users;
       }
-    } catch {
+    } catch(error) {
+      console.error(error)
       toast.error("Internal Server Error...")
       return rejectWithValue([], "Error occured. Try again later.");
     }
@@ -34,7 +34,8 @@ export const getBookmarks = createAsyncThunk(
       if (status === 200) {
         return data.bookmarks;
       }
-    } catch {
+    } catch(error){
+      console.error(error)
       toast.error("Failed to fetch bookmarks...")
       return rejectWithValue([], "Error occured. Try again later.");
     }
@@ -50,7 +51,8 @@ export const addBookmark = createAsyncThunk(
         toast.success("Added to Bookmarks...")
         return data.bookmarks;
       }
-    } catch {
+    } catch(error) {
+      console.error(error)
       toast.error("Try Again Later..")
       return rejectWithValue([], "Error occured. Try again later.");
     }
@@ -67,7 +69,8 @@ export const removeBookmark = createAsyncThunk(
         toast.success("Removed from Bookmark...")
         return data.bookmarks;
       }
-    } catch {
+    } catch(error) {
+      console.error(error)
       toast.error("Try Again Later...")
       return rejectWithValue([], "Error occured. Try again later.");
     }
@@ -82,7 +85,8 @@ export const followUser = createAsyncThunk(
         toast.success("User Followed...")
         return data;
       }
-    } catch {
+    } catch(error) {
+      console.error(error)
       toast.error("Try Again Later...")
       return rejectWithValue([], "Error occured. Try again later.");
     }
@@ -99,7 +103,8 @@ export const unfollowUser = createAsyncThunk(
         toast.success('User Un-Followed...')
         return data;
       }
-    } catch {
+    } catch(error) {
+      console.error(error)
       toast.error("Try Again Later..")
       return rejectWithValue([], "Error occured. Try again later.");
     }
@@ -114,7 +119,8 @@ export const updateProfile = createAsyncThunk(
         toast.success("Profile Updated Sucessfully...")
         return data.user;
       }
-    } catch {
+    } catch(error) {
+      console.error(error)
       toast.error("Try Again Later...")
       return rejectWithValue("Some error occured. Try again");
     }
