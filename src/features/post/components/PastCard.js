@@ -29,7 +29,7 @@ export const PostCard = ({ post }) => {
 
   return (
     <div
-      className="grid sm:grid-cols-[4rem_1fr] sm:text-sm text-xs  border-b bg-darkbg border-secondary bg p-3 cursor-pointer dark:text-terniarycolor text-lightthemetext"
+      className="grid sm:grid-cols-[4rem_1fr] sm:text-sm text-xs  border-b bg-darkbg border-secondary bg p-3 cursor-pointer dark:text-terniarycolor text-lightthemetext hover:dark:bg-darkbg1 hover:bg-lightthemebg2"
       onClick={(e) => {
         e.stopPropagation();
         navigate(`/post/${id}`);
