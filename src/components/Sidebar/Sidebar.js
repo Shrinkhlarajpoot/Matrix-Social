@@ -35,7 +35,7 @@ export const Sidebar = () => {
               className="h-12 cursor-pointer"
               onClick={() => navigate("/")}
             ></img>
-            <span className="hidden lg:inline">MATRIX</span>
+            
           </div>
         </li>
         <div className="sm:pr-2 sm:pr-0 flex justify-between sm:flex-col size  sm:bg-inherit dark:bg-darkbg1   py-1 bg-lightthemebg2 sm:dark:bg-lightbg px-2 sm:px-0 text-lightthemetext sm-text-inherit z-40 sm:z-0 ">

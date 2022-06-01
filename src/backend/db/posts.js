@@ -10,7 +10,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.  ",
+    "Most of those who have succeeded in life can trace their success back to the essential education they obtained from parents, teachers and/ or friends.",
       image:null,
       imageAlt:"",
       likes: {
@@ -69,8 +69,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "Coding in react is soo amazing",
-      image:"https://res.cloudinary.com/ds6cgk1wy/image/upload/v1653243161/matrix%20images/lala_qzvnw3.webp",
+"Started Leaning React...Hooks are amazing" ,     image:"https://res.cloudinary.com/ds6cgk1wy/image/upload/v1653243161/matrix%20images/lala_qzvnw3.webp",
       imageAlt:"UseMemo",
       likes: {
       likeCount: 0,
@@ -84,7 +83,7 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
-        commentInput: "Profile Pic is Awesome..",
+        commentInput: "All the best..",
         username: "shrinkhla",
         fullName: "Shrinkhla Rajpoot",
         profileImage:
@@ -98,7 +97,7 @@ export const posts = [
       },
       {
         _id: uuid(),
-        commentInput: "Making App In React Is Fun",
+        commentInput: "Share your journey..",
         username: "pritam_kmr",
         fullName: "Pritam Kumar",
         profileImage:
@@ -118,7 +117,7 @@ export const posts = [
     image:null,
     imageAlt:"",
     content:
-      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "A goal is a dream with a deadline. ...",
     likes: {
       likeCount: 1,
       likedBy: [
@@ -142,7 +141,7 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
-        commentInput: "Hello Everyone..",
+        commentInput: "Inspiratonal...",
         username: "pritam_kmr",
         fullName: "Pritam Kumar",
         profileImage:
@@ -160,7 +159,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "You are never too old to set another goal or to dream a new dream. ...",
       image:null,
       imageAlt:"",
       likes: {
@@ -168,7 +167,7 @@ export const posts = [
       likedBy: [
         {
           _id: uuid(),
-          commentInput: "Hello Everyone..",
+          commentInput: "yeah..Age doesn't matter when you have great dreams.",
           username: "pritam_kmr",
           fullName: "Pritam Kumar",
           profileImage:
@@ -212,7 +211,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At  laborum et dolorum t officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+"Every day, think as you wake up, today I am fortunate to be alive, I have a precious human life, I am not going to waste it. I am going to use all my energies to develop myself, to expand my heart out to others; to achieve enlightenment for the benefit of all beings. I am going to have kind thoughts towards others, I am not going to get angry or think badly about others. I am going to benefit others as much as I can",
       image:null,
       imageAlt:"",
       likes: {
@@ -250,7 +249,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "A friend and I were talking about the control that comes with thinking life is as it should be with us in it. But the truth is, life is exactly planned.",
       image:null,
       imageAlt:"",
       likes: {
@@ -285,7 +284,7 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
-        commentInput: "Making App In React Is Fun",
+        commentInput: "Just like the way how you told the reality of life in few lines.",
         username: "pritam_kmr",
         fullName: "Pritam Kumar",
         profileImage:
@@ -302,8 +301,7 @@ export const posts = [
 
   {
     _id: uuid(),
-    content:
-      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.  ",
+    content:"If you strive for perfect love, you will learn to see the face of God in your spouse, your children, and your fellow human. This should be our goal as humankind.",
       image:null,
       imageAlt:"",
       likes: {
@@ -342,7 +340,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "If you learn to develop an abundant mentality you will not be envious of others, you will celebrate their successes, you will share in their joys and pains. Don't see life as a competition but as complementary. ",
       image:null,
       imageAlt:"",
       likes: {
@@ -387,7 +385,7 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
-        commentInput: "Welcome Back..",
+        commentInput: "Thats really Inspiratinal..",
         username: "pritam_kmr",
         fullName: "Pritam Kumar",
         profileImage:
@@ -401,7 +399,7 @@ export const posts = [
       },
       {
         _id: uuid(),
-        commentInput: "Howz the Trip..",
+        commentInput: "Great lines about life..Love it.",
         username: "pritam_kmr",
         fullName: "Pritam Kumar",
         profileImage:
@@ -419,7 +417,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At vero eos et st uptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "To get where we want to go in life, we have to keep at it. We have to create a vision, make choices based on what moves us most swiftly toward our goals, and go after them with determination and single-mindedness.",
       image:null,
       imageAlt:"",
       likes: {

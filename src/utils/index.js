@@ -5,3 +5,4 @@ export {sortByDate} from "./sortByDate";
 export {getSearchedUser} from "./getSeachedUser";
 export {debounceSearch} from "./debounceSearch";
 export {uploadImage} from "./uploadImage";
+export {sharePost} from "./sharePost";

@@ -114,7 +114,7 @@ return (
           <div className="relative w-100 m-auto">
             <img
               src={image ? URL.createObjectURL(image) : input?.image}
-              className="w-100 h-auto rounded-md m-auto mt-2"
+              className="w-100 max-h-52 rounded-md m-auto mt-2"
               alt={input?.imageAlt || image.name.split(".")[0]}
             />
             <button

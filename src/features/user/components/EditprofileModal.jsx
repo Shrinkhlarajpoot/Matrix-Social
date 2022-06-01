@@ -86,7 +86,7 @@ export const EditprofileModal = ({ setEditModal }) => {
 
           <label>
             {" "}
-            <span class="material-icons-outlined absolute left-6 -bottom-1 text-primary cursor-pointer text-xs">
+            <span class="material-icons-outlined absolute right-1 -bottom-1 text-primary cursor-pointer text-md">
               photo_camera
             </span>
             <input

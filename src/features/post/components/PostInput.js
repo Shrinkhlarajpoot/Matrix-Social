@@ -6,12 +6,14 @@ import { useRef, useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { uploadImage } from "../../../utils";
 
+
 export const PostInput = ({}) => {
   const [input, setInput] = useState("");
   const [image, setImage] = useState(null);
   const newPostRef = useRef();
-  const { token, user, isLoading } = useSelector((state) => state.auth);
+  const { token, user} = useSelector((state) => state.auth);
   const { users } = useSelector((state) => state.user);
+  const {isLoading}=useSelector((state)=>state.post);
   const dispatch = useDispatch();
   const submitPost = async (e) => {
     e.preventDefault();
@@ -28,7 +30,6 @@ export const PostInput = ({}) => {
       );
     } else
       dispatch(createPost({ input, image: "", imageAlt: "", token, user }));
-
     setInput("");
     setImage(null);
     newPostRef.current.innerText = "";
@@ -51,7 +52,7 @@ export const PostInput = ({}) => {
           <div className="relative w-100 m-auto">
             <img
               src={URL.createObjectURL(image)}
-              className="w-100 h-auto rounded-md m-auto mt-2"
+              className="w-100 max-h-72 rounded-md m-auto mt-2"
               alt="demo"
             />
             <button

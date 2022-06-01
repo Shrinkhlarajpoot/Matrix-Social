@@ -1,9 +1,9 @@
 import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { UserAvatar } from "../../../components";
 import { useclcikoutside } from "../../../hooks/useclickoutside";
-import { getPostDate, likebyloggedUser, postInBookmarks } from "../../../utils";
+import { getPostDate, likebyloggedUser, postInBookmarks, sharePost } from "../../../utils";
 import { addBookmark, removeBookmark } from "../../user";
 import { likePost, dislikePost } from "../postSlice";
 import { CommentModal } from "./CommentModal";
@@ -14,7 +14,7 @@ export const PostCard = ({ post }) => {
   const [showpostOptions, setShowPostOptions] = useState(false);
   const [showCommentModal, setShowCommentModal] = useState(false);
   const dispatch = useDispatch();
-  const { token, user } = useSelector((state) => state.auth);
+ const { token, user } = useSelector((state) => state.auth);
   const { bookmarks, users } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const postRef = useRef();
@@ -130,7 +130,7 @@ export const PostCard = ({ post }) => {
             class="material-icons-outlined py-1 px-2 pr-2 hover:rounded-full text-md hover:text-primary  "
             onClick={(e) => {
               e.stopPropagation();
-              toast.success("Link copied");
+              sharePost(post.id)
             }}
           >
             share
