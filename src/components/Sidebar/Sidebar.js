@@ -84,7 +84,7 @@ export const Sidebar = () => {
             </NavLink>
           </li>
           <div
-            className="h-12 mt-4  w-15 h-15  bg-primary text-white  flex items-center justify-center rounded-full cursor-pointer border border-black sm:px-3 px-3 fixed bottom-20 right-1 sm:relative sm:bottom-0 "
+            className="h-12 mt-4  w-15 h-15 sm:hidden block bg-primary text-white  flex items-center justify-center rounded-full cursor-pointer border border-black sm:px-3 px-3 fixed bottom-20 right-1 sm:relative sm:bottom-0 "
             onClick={(e) => {
               e.preventDefault();
               setNewPostModal(true);
@@ -96,8 +96,8 @@ export const Sidebar = () => {
         </div>
       </ul>
       {newPostModal ? (
-        <div className="bg-[#00000080] fixed top-0 left-0  w-screen h-screen  flex justify-center items-center opacity-100 z-50 backdrop-blur-sm">
-          <div className="xl:w-1/2 md:w-2/3 w-5/6 bg-lightthemebg2 sm:mx-1  dark:bg-darkbg1 border border-primary rounded z-50 ">
+        <div className="bg-[#00000080] fixed top-0 left-0  w-screen h-screen  flex justify-center items-center opacity-100 z-40 backdrop-blur-sm">
+          <div className="xl:w-1/2 md:w-2/3 w-5/6 bg-lightthemebg2 sm:mx-1  dark:bg-darkbg1 border border-primary rounded z-40 ">
             {" "}
             <PostModal
               setNewPostModal={setNewPostModal}

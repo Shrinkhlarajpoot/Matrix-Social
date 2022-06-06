@@ -85,10 +85,10 @@ useEffect(() => {
   };
  
 return (
-    <div
-      className={`grid sm:grid-cols-[4rem_1fr] p-3 border-b border-secondary text-sm w-100 grid-cols-[1fr] ${
+   <div
+      className={`grid sm:grid-cols-[4rem_1fr] p-3 border-b border-secondary text-sm w-100 grid-cols-[1fr]  ${
         post
-          ? " border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1  border-primary  rounded xl:w-1/2 md:w-2/3 w-5/6 z-40 " 
+          ? " border dark:bg-darkbg bg-lightthemebg2 dark:bg-darkbg1  border-primary  rounded xl:w-1/2 md:w-2/3 w-5/6 z-40" 
           : ""
       }`}
       ref={modalRef}
@@ -169,5 +169,6 @@ return (
         </div>
       </form>
     </div>
+    
   );
 };
