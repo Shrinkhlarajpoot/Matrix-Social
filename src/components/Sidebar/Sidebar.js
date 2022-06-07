@@ -32,8 +32,8 @@ export const Sidebar = () => {
           <div className="flex items-center font-bold text-primary text-2xl hidden sm:block xs:w-screen ">
             <img
               src="/assests/logoimg.png"
-              className="h-12 cursor-pointer"
-              onClick={() => navigate("/")}
+              className="h-12 "
+              
             ></img>
             
           </div>

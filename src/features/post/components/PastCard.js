@@ -86,8 +86,8 @@ export const PostCard = ({ post }) => {
         <div className="flex  mt-1 justify-between ">
           <div className="flex items-center">
             <span
-              class={`material-icons-outlined py-1 px-2 hover:rounded-full  text-md hover:text-primary ${
-                likebyloggedUser(post, user) ? "text-red" : null
+              class={`material-icons-outlined py-1 pl-2 pr-1 hover:rounded-full  text-md pb-2 ${
+                likebyloggedUser(post, user) ? "text-red" : "hover:text-primary"
               }`}
               onClick={(e) => {
                 e.stopPropagation();
@@ -96,9 +96,9 @@ export const PostCard = ({ post }) => {
                   : dispatch(likePost({ token, _id }));
               }}
             >
-              thumb_up_off_alt
+            favorite
             </span>
-            {likes.likeCount > 0 && likes.likeCount}
+           <span className="pb-1">{likes.likeCount > 0 && likes.likeCount}</span>
           </div>
           <div className="flex items-center ">
             <span

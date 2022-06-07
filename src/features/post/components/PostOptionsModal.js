@@ -78,7 +78,7 @@ export const PostOptionsModal = ({ setShowPostOptions, post }) => {
 
       {showNewPostModal ? (
         <div
-          className="bg-[#00000080] top-0 left-0 fixed w-screen h-screen flex justify-center items-center rounded flex justify-center items-center backdrop-blur-sm z-40 "
+          className="bg-[#00000080] top-0 left-0 fixed w-screen h-screen flex justify-center items-center rounded backdrop-blur-sm z-40 "
           onClick={(e) => e.stopPropagation()}
         >
           <PostModal

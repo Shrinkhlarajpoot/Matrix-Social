@@ -1,7 +1,10 @@
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
   const navigate = useNavigate();
+  const {token}=useSelector((state)=>state.auth)
+                    
   return (
     <div className="grid  grid-cols-[1fr] md:grid-cols-[2fr_3fr] h-screen w-screen ">
       <div className="bg-secondary flex flex-col justify-center items-center">
@@ -53,7 +56,7 @@ const LandingPage = () => {
               className="bg-secondary px-16 py-2 w-2/3 rounded border-none uppercase hover:bg-primary"
               onClick={() => navigate("login")}
             >
-              Log In
+              Login
             </button>
           </div>
         </div>

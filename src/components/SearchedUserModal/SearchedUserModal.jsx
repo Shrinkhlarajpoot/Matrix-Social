@@ -34,7 +34,7 @@ export const SearchedUserModal = () => {
           </div>
         ))
       ) : (
-        <div className="text-secondary mx-auto">No Seach User Found</div>
+        <div className="text-secondary mx-auto">No Search User Found</div>
       )}
     </div>
   );

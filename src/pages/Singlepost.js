@@ -141,10 +141,10 @@ export const Singlepost = () => {
                       <div className="flex flex-col">
                         <div className="flex items-center">
                           <span
-                            class={`material-icons-outlined py-1 px-2 hover:rounded-full  text-md hover:text-primary ${
+                            class={`material-icons-outlined py-1 pl-2 pr-1 hover:rounded-full  text-md pb-2 ${
                               likebyloggedUser(currentPost, user)
                                 ? "text-red"
-                                : null
+                                :" hover:text-primary"
                             }`}
                             onClick={(e) => {
                               e.stopPropagation();
@@ -157,10 +157,10 @@ export const Singlepost = () => {
                                   );
                             }}
                           >
-                            thumb_up_off_alt
+                            favorite
                           </span>
-                          {currentPost?.likes?.likeCount > 0 &&
-                            currentPost?.likes?.likeCount}
+                          <span className="pb-1">{currentPost?.likes?.likeCount > 0 &&
+                            currentPost?.likes?.likeCount}</span>
                         </div>
                       </div>
                       <div className="flex items-center">
